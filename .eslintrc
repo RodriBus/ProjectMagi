@@ -1,0 +1,14 @@
+{
+  "extends": "react",
+  "align-function-arguments": 0,
+  "align-multiline-assignment": 0,
+  "assert-fail-single-argument": 0,
+  "linebreak-style": 0,
+  "new-with-error": 0,
+  "no-deepEqual": 0,
+  "no-definegetter-definesetter": 0,
+  "indent": ["error", 2],
+  "globals": {
+      "document": true
+    }
+}

@@ -1,0 +1,19 @@
+@import url('/fonts/PixelEmulator/PixelEmulator.otf');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+@import 'colors';
+
+* {padding: 0; margin: 0; box-sizing: border-box;}
+
+html {
+  background-color: $background-black;
+  color: $text-white;
+  font-family: 'Pixel Emulator', 'Press Start 2P', monospace;
+  text-shadow: 1px 0 0 $text-shadow, 0 1px 0 $text-shadow;
+  font-size: 1em;
+
+}
+
+body {
+  font-size: 1em;
+}
