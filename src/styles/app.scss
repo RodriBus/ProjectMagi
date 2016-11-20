@@ -1,9 +1,14 @@
-@import url('/fonts/PixelEmulator/PixelEmulator.otf');
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
-
+@import url( '/fonts/PixelEmulator/PixelEmulator.otf');
+@import url( 'https://fonts.googleapis.com/css?family=Press+Start+2P');
 @import 'colors';
+@import 'dimensions';
+@import 'mixins';
 
-* {padding: 0; margin: 0; box-sizing: border-box;}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 html {
   background-color: $background-black;
@@ -11,9 +16,47 @@ html {
   font-family: 'Pixel Emulator', 'Press Start 2P', monospace;
   text-shadow: 1px 0 0 $text-shadow, 0 1px 0 $text-shadow;
   font-size: 1em;
-
+  position: relative;
+  height: 100%;
 }
 
 body {
-  font-size: 1em;
+  height: 100%;
+  position: relative;
+}
+
+.menu {
+  margin: 0 auto;
+  // @include vertical-align();
+  min-width: $menu-width;
+  max-width: $menu-width;
+  min-height: $menu-height;
+  max-height: $menu-height;
+}
+
+.stage {
+  padding: $stage-padding;
+  min-width: $menu-width;
+  max-width: $menu-width;
+  min-height: $menu-height;
+  max-height: $menu-height;
+  background-color: $menu-background;
+  border-color: $menu-border-fill;
+  border-width: $stage-border-size;
+  border-style: solid;
+  border-radius: $stage-border-size*2;
+  box-shadow: 0 0 0 1px $menu-border, inset 0 0 0 1px $menu-border;
+
+  li {
+    list-style-type: none;
+    margin-left: $stage-options-margin-left;
+    position: relative;
+    &.selected {
+      &:before {
+        content: '>';
+        position: absolute;
+        left: -($stage-options-margin-left+10);
+      }
+    }
+  }
 }
