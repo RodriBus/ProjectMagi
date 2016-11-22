@@ -316,9 +316,11 @@ export class StageFactory {
         const thisWeb = new Schemata('thisWeb', 'This Website', 2016);
         const thisWebLink = new Link('thisGithubLink', 'See on Github', 'http://github.com', Icons.GITHUB);
         thisWeb.addChilds(thisWebLink);
+
         const canapi = new Schemata('canapi', 'CanaPi', 2016);
         const canapiLink = new Link('canapiGithubLink', 'See on Github', 'http://github.com', Icons.GITHUB);
         canapi.addChilds(canapiLink);
+
         const pintamonas = new Schemata('pintamonas', 'Pintamonas', 2016);
         const pintaLink = new Link('pintamonasGithubLink', 'See on Github', 'http://github.com', Icons.GITHUB);
         pintamonas.addChilds(pintaLink);
@@ -329,9 +331,11 @@ export class StageFactory {
         const itgfSlLink = new Link('itgfSlidesLink', 'View Slides', 'http://github.com', Icons.LINK);
         const itgfGLink = new Link('itgfGithubLink', 'See on Github', 'http://github.com', Icons.GITHUB);
         itgf.addChilds(itgfSLink, itgfDLink, itgfSlLink, itgfGLink);
+
         const ecuestria = new Schemata('ecuestria', 'Ecuestria', 2014);
         const ecuestriaLink = new Link('ecuestriaGithubLink', 'See on Github', 'http://github.com', Icons.GITHUB);
         ecuestria.addChilds(ecuestriaLink);
+
         const christmas = new Schemata('christmas', 'Christmas Greeting', 2014);
         const christmasLink = new Link('christmasGithubLink', 'See on Github', 'http://github.com', Icons.GITHUB);
         christmas.addChilds(christmasLink);

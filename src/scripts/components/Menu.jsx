@@ -4,8 +4,10 @@ import React from 'react';
 import MainStage from './Stages/MainStage';
 import SpellStage from './Stages/SpellStage';
 import EquipStage from './Stages/EquipStage';
+import SchemataStage from './Stages/SchemataStage';
+import SaveStage from './Stages/SaveStage';
 
-import { navigatorStore } from '../store';
+import {navigatorStore} from '../store';
 import * as actions from '../actions';
 
 export default class Menu extends React.Component {
@@ -90,9 +92,8 @@ export default class Menu extends React.Component {
             main: <MainStage id="main" key="main" />,
             spells: <SpellStage id="spells" key="spells" />,
             equip: <EquipStage id="equip" key="equip" />,
-            // equip: <Stage id="equip" key="equip" menuItems={[]}/>,
-            // schemata: <Stage id="schemata" key="schemata" menuItems={[]}/>,
-            // save: <Stage id="save" key="save" menuItems={[]}/>
+            schemata: <SchemataStage id="schemata" key="schemata" />,
+            save: <SaveStage id="save" key="save" />
         };
         return items[id] || items.main;
     }

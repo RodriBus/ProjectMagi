@@ -14,26 +14,27 @@ Colors.PURPLE = 'purple';
 
 
 const Elements = {};
-Elements.NOELEMENT = Symbol('NOELEMENT');
-Elements.FIRE = Symbol('FIRE');
-Elements.ICE = Symbol('ICE');
-Elements.LIGHTNING = Symbol('LIGHTNING');
-Elements.EARTH = Symbol('EARTH');
-Elements.WIND = Symbol('WIND');
-Elements.WATER = Symbol('WATER');
-Elements.HOLY = Symbol('HOLY');
-Elements.DARK = Symbol('DARK');
-Elements.POISON = Symbol('POISON');
-Elements.CURSE = Symbol('CURSE');
-Elements.GRAVITY = Symbol('GRAVITY');
-Elements.PHYSICAL = Symbol('PHYSICAL');
-Elements.MAGIC = Symbol('MAGIC');
+Elements.NOELEMENT = '';
+Elements.FIRE = 'fire';
+Elements.ICE = 'ice';
+Elements.LIGHTNING = 'lightning';
+Elements.EARTH = 'earth';
+Elements.WIND = 'wind';
+Elements.WATER = 'water';
+Elements.HOLY = 'holy';
+Elements.DARK = 'dark';
+Elements.POISON = 'poison';
+Elements.CURSE = 'curse';
+Elements.GRAVITY = 'gravity';
+Elements.PHYSICAL = 'physical';
+Elements.MAGIC = 'magic';
 
 
 const Icons = {};
 
 Icons.NOICON = '';
-Icons.SHIELD = 'shield';
+Icons.LINK = 'link';
+Icons.GITHUB = 'github';
 
 
 
