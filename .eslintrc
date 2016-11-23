@@ -7,8 +7,11 @@
   "new-with-error": 0,
   "no-deepEqual": 0,
   "no-definegetter-definesetter": 0,
-  "indent": ["error", 2],
+  "indent": ["error", 4],
   "globals": {
-      "document": true
+      "window": true,
+      "document": true,
+      "console": true,
+      "Audio": true
     }
 }
