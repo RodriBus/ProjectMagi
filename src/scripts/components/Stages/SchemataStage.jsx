@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { navigatorStore } from '../../store';
-import { Stage as StageClass } from '../../store';
+import navigatorStore from '../../store';
+import { Stage as StageClass } from '../../classes';
 
 export default class SchemataStage extends React.Component {
 
@@ -39,6 +39,14 @@ export default class SchemataStage extends React.Component {
         }}>{stage.help}</div>);
     }
 
+    getChilds (id = this.state.currentStageSelected.id) {
+        const stage = StageClass.getStage(id);
+        const items = stage.childs.map((chld) => (<li key={chld.id} id={chld.id} className={' ' + this.getClasses(chld.id)}>{this.getText(chld.id)}</li>))
+        return (<ul style={{ display: 'inline-block', marginLeft: '40px' }}>
+          {items}
+        </ul>);
+    }
+
     getActiveClass (id) {
         return id === this.state.currentStageSelected.id ? 'active' : '';
     }
@@ -48,10 +56,15 @@ export default class SchemataStage extends React.Component {
         return stage.available ? '' : 'disabled';
     }
 
+    getForcedActive (id) {
+        return this.props.forceActive === id ? 'active' : '';
+    }
+
     getClasses (id) {
         return [
             this.getActiveClass(id),
-            this.getDisabledClass(id)
+            this.getDisabledClass(id),
+            this.getForcedActive(id)
         ].join(' ');
     }
 
@@ -66,6 +79,7 @@ export default class SchemataStage extends React.Component {
                 <li className={' ' + this.getClasses('ecuestria')}>{this.getText('ecuestria')}</li>
                 <li className={' ' + this.getClasses('christmas')}>{this.getText('christmas')}</li>
               </ul>
+              {this.getChilds(this.props.forceActive)}
               {this.getHelp()}
             </div>
         );

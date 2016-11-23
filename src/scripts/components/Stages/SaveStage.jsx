@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { navigatorStore } from '../../store';
-import { Stage as StageClass } from '../../store';
+import navigatorStore from '../../store';
+import { Stage as StageClass } from '../../classes';
 
 export default class SaveStage extends React.Component {
 
@@ -58,12 +58,15 @@ export default class SaveStage extends React.Component {
     render () {
         return (
             <div className="stage">
-              <ul style={{ display: 'inline-block' }}>
-                <li className={' ' + this.getClasses('email')}>{this.getText('email')}</li>
-                <li className={' ' + this.getClasses('linkedin')}>{this.getText('linkedin')}</li>
-                <li className={' ' + this.getClasses('github')}>{this.getText('github')}</li>
-              </ul>
-              {this.getHelp()}
+            <p>
+                If you want to save me for your company contact me at <i className={this.getClasses('email')}/>{this.getText('email')} or via linkedin on <i className={this.getClasses('linkedin')}/>{this.getText('linkedin')}.
+            </p>
+            <br/>
+            <p>
+                You can check my works on Github at <i className={this.getClasses('github')}/>{this.getText('github')}.
+            </p>
+            <br/>
+            <div>Made with <span class="heart">❤</span> by Diego</div>
             </div>
         );
     }

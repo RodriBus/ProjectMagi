@@ -80,6 +80,10 @@ i.active {
   }
 }
 
+.heart {
+  color: $red;
+}
+
 .menuElement.active {
   &:before{
     content: '>';

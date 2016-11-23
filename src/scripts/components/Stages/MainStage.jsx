@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { navigatorStore } from '../../store';
-import { Stage as StageClass } from '../../store';
+import navigatorStore from '../../store';
+import { Stage as StageClass } from '../../classes';
 
 export default class MainStage extends React.Component {
 

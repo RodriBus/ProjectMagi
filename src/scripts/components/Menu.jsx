@@ -1,13 +1,9 @@
 import React from 'react';
 
 // import Stage from './Stage';
-import MainStage from './Stages/MainStage';
-import SpellStage from './Stages/SpellStage';
-import EquipStage from './Stages/EquipStage';
-import SchemataStage from './Stages/SchemataStage';
-import SaveStage from './Stages/SaveStage';
+import {MainStage, EquipStage, SpellStage, SchemataStage, SaveStage} from './Stages';
 
-import {navigatorStore} from '../store';
+import navigatorStore from '../store';
 import * as actions from '../actions';
 
 export default class Menu extends React.Component {
@@ -89,11 +85,17 @@ export default class Menu extends React.Component {
     getStage (id) {
         console.log('Rendered STAGE: ', id);
         const items = {
-            main: <MainStage id="main" key="main" />,
-            spells: <SpellStage id="spells" key="spells" />,
-            equip: <EquipStage id="equip" key="equip" />,
-            schemata: <SchemataStage id="schemata" key="schemata" />,
-            save: <SaveStage id="save" key="save" />
+            main: (<MainStage id="main" key="main" />),
+            spells: (<SpellStage id="spells" key="spells" />),
+            equip: (<EquipStage id="equip" key="equip" />),
+            schemata: (<SchemataStage id="schemata" key="schemata" />),
+            thisWeb: (<SchemataStage forceActive="thisWeb" id="thisWeb" key="thisWeb" />),
+            canapi: (<SchemataStage forceActive="canapi" id="canapi" key="canapi" />),
+            pintamonas: (<SchemataStage forceActive="pintamonas" id="pintamonas" key="pintamonas" />),
+            itgf: (<SchemataStage forceActive="itgf" id="itgf" key="itgf" />),
+            ecuestria: (<SchemataStage forceActive="ecuestria" id="ecuestria" key="ecuestria" />),
+            christmas: (<SchemataStage forceActive="christmas" id="christmas" key="christmas" />),
+            save: (<SaveStage id="save" key="save" />)
         };
         return items[id] || items.main;
     }
