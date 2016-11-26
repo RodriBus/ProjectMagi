@@ -10,7 +10,7 @@ export default class Menu extends React.Component {
     constructor () {
         super();
         this.state = {
-            currentStageId: 'main'
+            currentStageId: navigatorStore.currentPath
         };
 
         const audio = this.audio = new Audio();

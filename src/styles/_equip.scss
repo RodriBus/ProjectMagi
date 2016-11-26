@@ -1,0 +1,93 @@
+.stage--equip {
+  .stage--column {
+    flex-grow: 1;
+    flex-direction: column;
+  }
+
+  .column--section__top {
+    flex-grow: 55;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .column--section__middle {
+    flex-grow: 88;
+    display: flex;
+    padding: 0 20px;
+  }
+  .section--column {
+    display: flex;
+    flex-direction: column;
+  }
+  .column--half {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+  .column--half__left {
+    min-width: 72px;
+    max-width: 72px;
+    text-align: right;
+  }
+  .column--half__right {
+
+  }
+
+
+
+  .column--section__bottom {
+    flex-grow: 257;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+  }
+  .column--half__column {
+    flex-direction: column;
+    padding: 10px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .stat {
+    width: 100%;
+    flex-grow: 1;
+    max-height: 30px;
+    line-height: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stat--top {
+    width: 100%;
+    display: flex;
+  }
+  .stat--name {
+    flex-grow: 1;
+  }
+  .stat--score {
+    max-width: 30px;
+    text-align: right;
+  }
+  .stat--bar {
+    flex-grow: 1;
+    width: 100%;
+    height: 7px;
+    border: 1px solid $stat-border;
+    border-radius: 1px;
+  }
+  .stat--bar-fill {
+    // width: 0%;
+    height: 100%;
+    background-image: url(/images/blend.png);
+    background-blend-mode: multiply;
+    animation: grow .5s;
+    animation-fill-mode: backwards;
+    // transition: width 1s;
+  }
+  @keyframes grow {
+     0% { width: 0; }
+  }
+}

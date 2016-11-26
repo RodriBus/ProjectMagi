@@ -1,16 +1,16 @@
 
 const Colors = {};
-Colors.NOCOLOR = '';
-Colors.RED = 'red';
-Colors.GREEN = 'green';
-Colors.BLUE = 'blue';
-Colors.YELLOW = 'yellow';
-Colors.ORANGE = 'orange';
-Colors.SKYBLUE = 'skyblue';
-Colors.BROWN = 'brown';
-Colors.LIGHTBLUE = 'lightblue';
-Colors.LIGHTGREEN = 'lightgreen';
-Colors.PURPLE = 'purple';
+Colors.NOCOLOR = 'rgba(0,0,0,0)';
+Colors.RED = '#bf4538';
+Colors.GREEN = '#11935f';
+Colors.BLUE = '#27a5da';
+Colors.YELLOW = '#f0d91d';
+Colors.ORANGE = '#eb6221';
+Colors.LIGHTORANGE = '#ed9321';
+Colors.SKYBLUE = '#1066aa';
+Colors.LIGHTBLUE = '#5ed4f4 ';
+Colors.LIGHTGREEN = '#639b61';
+Colors.PURPLE = '#652077';
 
 
 const Elements = {};

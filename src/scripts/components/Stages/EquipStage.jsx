@@ -1,7 +1,9 @@
 import React from 'react';
 
+import * as utils from '../../utils';
 import navigatorStore from '../../store';
 import { Stage as StageClass } from '../../classes';
+import Stage from '../Stage';
 
 export default class EquipStage extends React.Component {
 
@@ -27,114 +29,166 @@ export default class EquipStage extends React.Component {
         this.setState({ currentStageSelected });
     }
 
-    getText (id) {
-        const stage = StageClass.getStage(id);
-        return stage.displayName;
-    }
-
-    getStage (id) {
-        const stage = StageClass.getStage(id);
-        return stage;
-    }
-
-    getHelp () {
-        const stage = this.state.currentStageSelected;
-        return (<div style={{
-            paddingTop: '20px'
-        }}>{stage.help}</div>);
-    }
-
-    getActiveClass (id) {
-        return id === this.state.currentStageSelected.id ? 'active' : '';
-    }
-
-    getDisabledClass (id) {
-        const stage = StageClass.getStage(id);
-        return stage.available ? '' : 'disabled';
-    }
-
-    getClasses (id) {
-        return [
-            this.getActiveClass(id),
-            this.getDisabledClass(id)
-        ].join(' ');
-    }
-
     render () {
+      const {getClasses, getStageText, getStage, getCurrentStageHelp} = utils;
         return (
-            <div className="stage">
-                <div>
-                    <ul style={{ display: 'inline-block', margin: '10px 5px' }}>
-                        <li className={' '+this.getClasses('rhand')}>{this.getText('rhand')}</li>
-                        <li className={' '+this.getClasses('lhand')}>{this.getText('lhand')}</li>
-                    </ul>
-                    <ul style={{display: 'inline-block', margin: '10px 5px'}}>
-                        <li className={' '+this.getClasses('head')}>{this.getText('head')}</li>
-                        <li className={' '+this.getClasses('body')}>{this.getText('body')}</li>
-                    </ul>
-                </div>
-                <div style={{display: 'table'}}>
-                    <div style={{display: 'inline-block'}}>
-                    <div style={{display: 'table-col', margin: '10px 15px 0 5px'}}>
-                        <div style={{display:'table-row', color: this.getStage('js').color}}>
-                            <div style={{display: 'table-cell', minWidth: '150px'}}><i  className={' '+this.getClasses('js')}/>{this.getText('js')}</div>
-                            <div style={{display: 'table-cell'}}>{this.getStage('js').quantity}</div>
+            <Stage className="stage--equip">
+                <div className="stage--column">
 
-                        </div>
-                        <div style={{display:'table-row', color: this.getStage('es6').color}}>
-                            <div style={{display: 'table-cell', minWidth: '150px'}}><i  className={' '+this.getClasses('es6')}/>{this.getText('es6')}</div>
-                            <div style={{display: 'table-cell'}}>{this.getStage('es6').quantity}</div>
-
-                        </div>
-                        <div style={{display:'table-row', color: this.getStage('jquery').color}}>
-                            <div style={{display: 'table-cell', minWidth: '150px'}}><i  className={' '+this.getClasses('jquery')}/>{this.getText('jquery')}</div>
-                            <div style={{display: 'table-cell'}}>{this.getStage('jquery').quantity}</div>
-
-                        </div>
-                        <div style={{display:'table-row', color: this.getStage('angular').color}}>
-                            <div style={{display: 'table-cell', minWidth: '150px'}}><i  className={' '+this.getClasses('angular')}/>{this.getText('angular')}</div>
-                            <div style={{display: 'table-cell'}}>{this.getStage('angular').quantity}</div>
-
-                        </div>
-                        <div style={{display:'table-row', color: this.getStage('react').color}}>
-                            <div style={{display: 'table-cell', minWidth: '150px'}}><i  className={' '+this.getClasses('react')}/>{this.getText('react')}</div>
-                            <div style={{display: 'table-cell'}}>{this.getStage('react').quantity}</div>
-
-                        </div>
+                    <div className="column--section column--section__top menu--box">
+                        <span className="text__selectable text__selected">Equip</span>
+                        <span className="text__selectable text__disabled">Optimun</span>
+                        <span className="text__selectable text__disabled">Remove</span>
+                        <span className="text__selectable text__disabled">Empty</span>
                     </div>
-                </div>
-                <div style={{display: 'inline-block'}}>
-                    <div style={{display: 'table-col', margin: '0px 15px 0 5px'}}>
-                        <div style={{display:'table-row', color: this.getStage('node').color}}>
-                            <div style={{display: 'table-cell', minWidth: '150px'}}><i className={' '+this.getClasses('node')}/>{this.getText('node')}</div>
-                            <div style={{display: 'table-cell'}}>{this.getStage('node').quantity}</div>
 
-                        </div>
-                        <div style={{display:'table-row', color: this.getStage('css').color}}>
-                            <div style={{display: 'table-cell', minWidth: '150px'}}><i className={' '+this.getClasses('css')}/>{this.getText('css')}</div>
-                            <div style={{display: 'table-cell'}}>{this.getStage('css').quantity}</div>
+                    <div className="column--section column--section__middle menu--box">
 
+                        <div className="section--column">
+                            <div className="column--half ">
+                                <div className="column--half__left text__highlighted">R-Hand</div>
+                                <div className="column--half__right ">
+                                    <span className="text__selectable">{getStageText('rhand')}</span>
+                                </div>
+                            </div>
+                            <div className="column--half">
+                                <div className="column--half__left text__highlighted">L-Hand</div>
+                                <div className="column--half__right ">
+                                    <span className="text__selectable">{getStageText('lhand')}</span>
+                                </div>
+                            </div>
                         </div>
-                        <div style={{display:'table-row', color: this.getStage('csharp').color}}>
-                            <div style={{display: 'table-cell', minWidth: '150px'}}><i className={' '+this.getClasses('csharp')}/>{this.getText('csharp')}</div>
-                            <div style={{display: 'table-cell'}}>{this.getStage('csharp').quantity}</div>
 
+                        <div className="section--column">
+                            <div className="column--half">
+                                <div className="column--half__left text__highlighted">Head</div>
+                                <div className="column--half__right ">
+                                    <span className="text__selectable">{getStageText('head')}</span>
+                                </div>
+                            </div>
+                            <div className="column--half">
+                                <div className="column--half__left text__highlighted">Body</div>
+                                <div className="column--half__right ">
+                                    <span className="text__selectable">{getStageText('body')}</span>
+                                </div>
+                            </div>
                         </div>
-                        <div style={{display:'table-row', color: this.getStage('tridion').color}}>
-                            <div style={{display: 'table-cell', minWidth: '150px'}}><i className={' '+this.getClasses('tridion')}/>{this.getText('tridion')}</div>
-                            <div style={{display: 'table-cell'}}>{this.getStage('tridion').quantity}</div>
 
-                        </div>
-                        <div style={{display:'table-row', color: this.getStage('sql').color}}>
-                            <div style={{display: 'table-cell', minWidth: '150px'}}><i className={' '+this.getClasses('sql')}/>{this.getText('sql')}</div>
-                            <div style={{display: 'table-cell'}}>{this.getStage('sql').quantity}</div>
-
-                        </div>
                     </div>
+
+                    <div className="column--section column--section__bottom menu--box">
+
+                        <div className="column--half column--half__column">
+                            <div className="stat">
+                                <div className="stat--top">
+                                    <div className="stat--name">{getStageText('js')}</div>
+                                    <div className="stat--score">{getStage('js').quantity}</div>
+                                </div>
+                                <div className="stat--bar">
+                                    <div className="stat--bar-fill" style={{animationDelay:'0s', backgroundColor:getStage('js').color, width: getStage('js').quantity+'%'}}></div>
+                                </div>
+                            </div>
+
+                            <div className="stat">
+                                <div className="stat--top">
+                                    <div className="stat--name">{getStageText('es6')}</div>
+                                    <div className="stat--score">{getStage('es6').quantity}</div>
+                                </div>
+                                <div className="stat--bar">
+                                    <div className="stat--bar-fill" style={{animationDelay:'.1s', backgroundColor:getStage('es6').color, width: getStage('es6').quantity+'%'}}></div>
+                                </div>
+                            </div>
+
+                            <div className="stat">
+                                <div className="stat--top">
+                                    <div className="stat--name">{getStageText('jquery')}</div>
+                                    <div className="stat--score">{getStage('jquery').quantity}</div>
+                                </div>
+                                <div className="stat--bar">
+                                    <div className="stat--bar-fill" style={{animationDelay:'.2s', backgroundColor:getStage('jquery').color, width: getStage('jquery').quantity+'%'}}></div>
+                                </div>
+                            </div>
+
+                            <div className="stat">
+                                <div className="stat--top">
+                                    <div className="stat--name">{getStageText('angular')}</div>
+                                    <div className="stat--score">{getStage('angular').quantity}</div>
+                                </div>
+                                <div className="stat--bar">
+                                    <div className="stat--bar-fill" style={{animationDelay:'.3s', backgroundColor:getStage('angular').color, width: getStage('angular').quantity+'%'}}></div>
+                                </div>
+                            </div>
+
+                            <div className="stat">
+                                <div className="stat--top">
+                                    <div className="stat--name">{getStageText('react')}</div>
+                                    <div className="stat--score">{getStage('react').quantity}</div>
+                                </div>
+                                <div className="stat--bar">
+                                    <div className="stat--bar-fill" style={{animationDelay:'.4s', backgroundColor:getStage('react').color, width: getStage('react').quantity+'%'}}></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div className="column--half column--half__column">
+
+                            <div className="stat">
+                                <div className="stat--top">
+                                    <div className="stat--name">{getStageText('node')}</div>
+                                    <div className="stat--score">{getStage('node').quantity}</div>
+                                </div>
+                                <div className="stat--bar">
+                                    <div className="stat--bar-fill" style={{animationDelay:'0s', backgroundColor:getStage('node').color, width: getStage('node').quantity+'%'}}></div>
+                                </div>
+                            </div>
+
+                            <div className="stat">
+                                <div className="stat--top">
+                                    <div className="stat--name">{getStageText('css')}</div>
+                                    <div className="stat--score">{getStage('css').quantity}</div>
+                                </div>
+                                <div className="stat--bar">
+                                    <div className="stat--bar-fill" style={{animationDelay:'.1s', backgroundColor:getStage('css').color, width: getStage('css').quantity+'%'}}></div>
+                                </div>
+                            </div>
+
+                            <div className="stat">
+                                <div className="stat--top">
+                                    <div className="stat--name">{getStageText('csharp')}</div>
+                                    <div className="stat--score">{getStage('csharp').quantity}</div>
+                                </div>
+                                <div className="stat--bar">
+                                    <div className="stat--bar-fill" style={{animationDelay:'.2s', backgroundColor:getStage('csharp').color, width: getStage('csharp').quantity+'%'}}></div>
+                                </div>
+                            </div>
+
+                            <div className="stat">
+                                <div className="stat--top">
+                                    <div className="stat--name">{getStageText('tridion')}</div>
+                                    <div className="stat--score">{getStage('tridion').quantity}</div>
+                                </div>
+                                <div className="stat--bar">
+                                    <div className="stat--bar-fill" style={{animationDelay:'.3s', backgroundColor:getStage('tridion').color, width: getStage('tridion').quantity+'%'}}></div>
+                                </div>
+                            </div>
+
+                            <div className="stat">
+                                <div className="stat--top">
+                                    <div className="stat--name">{getStageText('sql')}</div>
+                                    <div className="stat--score">{getStage('sql').quantity}</div>
+                                </div>
+                                <div className="stat--bar">
+                                    <div className="stat--bar-fill" style={{animationDelay:'.4s', backgroundColor:getStage('sql').color, width: getStage('sql').quantity+'%'}}></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
-                </div>
-                {this.getHelp()}
-            </div>
+            </Stage>
         );
     }
 }

@@ -6,6 +6,11 @@ export function getStageText(id) {
   return stage.displayName;
 }
 
+export function getStage (id) {
+  const stage = StageClass.getStage(id);
+  return stage;
+}
+
 export function getCurrentStageHelp() {
   const currentStageSelected = navigatorStore.currentCursor;
   const stage = currentStageSelected;

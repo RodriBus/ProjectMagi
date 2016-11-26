@@ -53,22 +53,22 @@ spells.addChilds(webdev, pro, passion, problemRes, organized, oldGames);
 //////////////////
 ///EQUIP STAGES///
 //////////////////
-const rhand = new Item('rhand', 'Good Practices', true, 'some rhand help text');
-const lhand = new Item('lhand', 'Resourcefulness', true, 'some lhand help text');
-const head = new Item('head', 'Eager to Lear', true, 'some head help text');
-const body = new Item('body', 'Passion', true, 'some body help text');
+const rhand = new Item('rhand', 'Good Practices', false, 'some rhand help text');
+const lhand = new Item('lhand', 'Resourcefulness', false, 'some lhand help text');
+const head = new Item('head', 'Eager to Lear', false, 'some head help text');
+const body = new Item('body', 'Passion', false, 'some body help text');
 equip.addChilds(rhand, lhand, head, body);
 
-const js = new Stat('js', 'JavaScript', true, null, 87, Colors.YELLOW);
-const es6 = new Stat('es6', 'ES6', true, null, 72, Colors.ORANGE);
-const jquery = new Stat('jquery', 'jQuery', true, null, 87, Colors.SKYBLUE);
-const angular = new Stat('angular', 'AngularJS', true, null, 76, Colors.BROWN);
-const react = new Stat('react', 'React', true, null, 62, Colors.LIGHTBLUE);
-const node = new Stat('node', 'NodeJS', true, null, 70, Colors.LIGHTGREEN);
-const css = new Stat('css', 'CSS', true, null, 62, Colors.BLUE);
-const csharp = new Stat('csharp', 'C#', true, null, 79, Colors.PURPLE);
-const tridion = new Stat('tridion', 'SDL Tridion', true, null, 60, Colors.GREEN);
-const sql = new Stat('sql', 'SQL', true, null, 56, Colors.RED);
+const js = new Stat('js', 'JavaScript', false, null, 87, Colors.YELLOW);
+const es6 = new Stat('es6', 'ES6', false, null, 72, Colors.ORANGE);
+const jquery = new Stat('jquery', 'jQuery', false, null, 87, Colors.SKYBLUE);
+const angular = new Stat('angular', 'AngularJS', false, null, 76, Colors.RED);
+const react = new Stat('react', 'React', false, null, 62, Colors.LIGHTBLUE);
+const node = new Stat('node', 'NodeJS', false, null, 70, Colors.LIGHTGREEN);
+const css = new Stat('css', 'CSS', false, null, 62, Colors.BLUE);
+const csharp = new Stat('csharp', 'C#', false, null, 79, Colors.PURPLE);
+const tridion = new Stat('tridion', 'SDL Tridion', false, null, 60, Colors.GREEN);
+const sql = new Stat('sql', 'SQL', false, null, 56, Colors.LIGHTORANGE);
 equip.addChilds(js, es6, jquery, angular, react, node, css, csharp, tridion, sql);
 
 

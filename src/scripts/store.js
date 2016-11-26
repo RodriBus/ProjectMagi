@@ -12,6 +12,8 @@ class NavigatorStore extends EventEmitter {
         const stages = StageFactory.getStages();
         const firstStage = stages[0];
         this.path = [firstStage.id];
+        //to fake startup stage
+        // this.path = ['main', 'equip'];
         const firstChildAvailable = firstStage.getFirstChildAvailableIndex();
         this.currentIndex = firstChildAvailable;
         this.pathIndex = [0];
@@ -88,7 +90,7 @@ class NavigatorStore extends EventEmitter {
         //if stage is link, open link
         //links has no childs
         this.handleLink(next);
-        if (next.hasChilds) {
+        if (next && next.hasChilds) {
             this.path.push(next.id);
             this.pathIndex.push(this.currentIndex);
             this.currentIndex = next.getFirstChildAvailableIndex();
