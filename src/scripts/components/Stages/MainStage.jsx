@@ -32,7 +32,7 @@ export default class MainStage extends React.Component {
     render () {
         const {getClasses, getStageText} = utils;
         return (
-            <Stage>
+            <Stage className="stage--main">
 
               <div className="stage--column stage--column__left-col">
                 <div className="menu--section colum--section menu--box">
@@ -116,17 +116,17 @@ export default class MainStage extends React.Component {
                 <div className="menu--section colum--section__top menu--box">
                     <div className="section--content">
                         <div className={'text__selectable ' + getClasses('items')}>{getStageText('items')}</div>
-                          <div className={'text__selectable ' + getClasses('abilities')}>{getStageText('abilities')}</div>
-                          <div className={'text__selectable ' + getClasses('equip')}>{getStageText('equip')}</div>
-                          <div className={'text__selectable ' + getClasses('spells')}>{getStageText('spells')}</div>
-                          <div className={'text__selectable ' + getClasses('status')}>{getStageText('status')}</div>
-                          <div className={'text__selectable ' + getClasses('formation')}>{getStageText('formation')}</div>
-                          <div className={'text__selectable ' + getClasses('config')}>{getStageText('config')}</div>
-                          <div className={'text__selectable ' + getClasses('datalog')}>{getStageText('datalog')}</div>
-                          <div className={'text__selectable ' + getClasses('schemata')}>{getStageText('schemata')}</div>
-                          <div className={'text__selectable ' + getClasses('map')}>{getStageText('map')}</div>
-                          <div className={'text__selectable ' + getClasses('help')}>{getStageText('help')}</div>
-                          <div className={'text__selectable ' + getClasses('save')}>{getStageText('save')}</div>
+                        <div className={'text__selectable ' + getClasses('abilities')}>{getStageText('abilities')}</div>
+                        <div className={'text__selectable ' + getClasses('equip')}>{getStageText('equip')}</div>
+                        <div className={'text__selectable ' + getClasses('spells')}>{getStageText('spells')}</div>
+                        <div className={'text__selectable ' + getClasses('status')}>{getStageText('status')}</div>
+                        <div className={'text__selectable ' + getClasses('formation')}>{getStageText('formation')}</div>
+                        <div className={'text__selectable ' + getClasses('config')}>{getStageText('config')}</div>
+                        <div className={'text__selectable ' + getClasses('datalog')}>{getStageText('datalog')}</div>
+                        <div className={'text__selectable ' + getClasses('schemata')}>{getStageText('schemata')}</div>
+                        <div className={'text__selectable ' + getClasses('map')}>{getStageText('map')}</div>
+                        <div className={'text__selectable ' + getClasses('help')}>{getStageText('help')}</div>
+                        <div className={'text__selectable ' + getClasses('save')}>{getStageText('save')}</div>
                     </div>
                 </div>
                 <div className="menu--section colum--section__middle menu--box">
