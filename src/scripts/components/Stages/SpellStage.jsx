@@ -3,7 +3,7 @@ import React from 'react';
 import navigatorStore from '../../store';
 import { Stage as StageClass } from '../../classes';
 
-export default class SpellStage extends React.Component {
+export default class SpellsStage extends React.Component {
 
     constructor (props) {
         super(props);

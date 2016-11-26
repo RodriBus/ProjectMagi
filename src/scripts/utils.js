@@ -1,16 +1,21 @@
+import navigatorStore from './store';
+import { Stage as StageClass } from './classes';
+
 export function getStageText(id) {
   const stage = StageClass.getStage(id);
   return stage.displayName;
 }
 
 export function getCurrentStageHelp() {
-  const stage = this.state.currentStageSelected;
+  const currentStageSelected = navigatorStore.currentCursor;
+  const stage = currentStageSelected;
   return stage.help;
 }
 
 export function getActiveClass(id) {
-  return id === this.state.currentStageSelected.id
-    ? 'active'
+  const currentStageSelected = navigatorStore.currentCursor;
+  return id === currentStageSelected.id
+    ? 'text__selected'
     : '';
 }
 
@@ -18,9 +23,9 @@ export function getDisabledClass(id) {
   const stage = StageClass.getStage(id);
   return stage.available
     ? ''
-    : 'disabled';
+    : 'text__disabled';
 }
 
 export function getClasses(id) {
-  return [getActiveClass(id), getDisabledClass(id)].join(' ').map((val) => !!val);
+  return [getActiveClass(id), getDisabledClass(id)].filter((val) => !!val).join(' ');
 }

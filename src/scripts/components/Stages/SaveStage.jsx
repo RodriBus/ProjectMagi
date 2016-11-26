@@ -66,7 +66,7 @@ export default class SaveStage extends React.Component {
                 You can check my works on Github at <i className={this.getClasses('github')}/>{this.getText('github')}.
             </p>
             <br/>
-            <div>Made with <span class="heart">❤</span> by Diego</div>
+            <div>Made with <span class="text__red">❤</span> by Diego</div>
             </div>
         );
     }
