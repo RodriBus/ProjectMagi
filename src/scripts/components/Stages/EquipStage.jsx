@@ -7,11 +7,8 @@ import Stage from '../Stage';
 
 export default class EquipStage extends React.Component {
 
-    constructor (props) {
-        super(props);
-        this.state = {
-            currentStageSelected: navigatorStore.currentCursor
-        };
+    constructor () {
+        super();
         this.onCursorMove = this.onCursorMove.bind(this);
     }
 
@@ -24,9 +21,7 @@ export default class EquipStage extends React.Component {
     }
 
     onCursorMove () {
-        const currentStageSelected = navigatorStore.currentCursor;
-        console.log(currentStageSelected);
-        this.setState({ currentStageSelected });
+        this.forceUpdate();
     }
 
     render () {
