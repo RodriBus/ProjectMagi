@@ -1,0 +1,25 @@
+.icon {
+  display: inline-block;
+  line-height: 1;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.icon--job {
+  background: url(/images/job-code.png);
+}
+.icon--heart {
+  background: url(/images/heart.png);
+}
+
+$spell-list: fire ice lightning earth wind water holy dark poison curse gravity physical magic;
+.icon--spell {
+  @each $spell in $spell-list {
+    &.icon--spell__#{$spell} {
+        color: $spell;
+        background: url(/images/spell--#{$spell}.png);
+    }
+  }
+}

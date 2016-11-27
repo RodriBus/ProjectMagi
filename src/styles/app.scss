@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 @import 'colors';
+@import 'icons';
 @import 'dimensions';
 @import 'mixins';
 
 @import 'menu';
 @import 'main';
 @import 'equip';
+@import 'spells';
 
 @font-face {
     font-family: 'Pixel Emulator';

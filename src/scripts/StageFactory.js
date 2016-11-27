@@ -31,7 +31,7 @@ const sass = new Spell('sass', 'SASS', true, 'I hope you like it hot', Elements.
 const bootstrap = new Spell('bootstrap', 'Bootstrap', true, 'Icing on the cake', Elements.ICE);
 const php = new Spell('php', 'PHP', true, 'Power from the scripted ground', Elements.EARTH);
 const java = new Spell('java', 'Java', true, 'Write once, execute everybody', Elements.GRAVITY);
-const google = new Spell('google', 'Google', true, 'Reveals the target\'s level, HP, MP, and elemental weaknesses', Elements.HOLY);
+const google = new Spell('google', 'Google', true, 'Reveals the target\'s LV, HP, MP, and weaknesses', Elements.HOLY);
 const photoshop = new Spell('photoshop', 'Photoshop', true, 'Inflicts Confusion on all enemies', Elements.CURSE);
 spells.addChilds(git, gulp, webpack, sass, bootstrap, php, java, google, photoshop);
 
