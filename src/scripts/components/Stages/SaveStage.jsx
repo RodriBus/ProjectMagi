@@ -27,7 +27,7 @@ export default class SaveStage extends React.Component {
     render () {
         const {getStage, getClasses, getStageText} = utils;
         return (
-            <Stage className="stage--spells menu--box">
+            <Stage className="stage--save menu--box">
                 <div className="section--text">
                     If you want to save me for your company contact me at
                     <a href={getStage('email').url} className={'text__link text__selectable ' + getClasses('email')}>
