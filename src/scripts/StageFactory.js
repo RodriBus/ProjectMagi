@@ -75,32 +75,32 @@ equip.addChilds(js, es6, jquery, angular, react, node, css, csharp, tridion, sql
 /////////////////////
 ///SCHEMATA STAGES///
 /////////////////////
-const thisWeb = new Schemata('thisWeb', 'This Website', 2016);
+const thisWeb = new Schemata('thisWeb', 'This Website', 'Project Magi', 'A different vision of my current CV to practice some react and flexbox.', 2016);
 const thisWebLink = new Link('thisGithubLink', 'See on Github', 'https://github.com/RodriBus/ProjectMagi', Icons.GITHUB);
 thisWeb.addChilds(thisWebLink);
 
-const canapi = new Schemata('canapi', 'CanaPi', 2016);
+const canapi = new Schemata('canapi', 'CanaPi', 'CanaPi', 'Know what devices are in your home network on real time... even when you are out!', 2016);
 const canapiLink = new Link('canapiGithubLink', 'See on Github', 'https://github.com/RodriBus/CanaPi', Icons.GITHUB);
 canapi.addChilds(canapiLink);
 
-const pintamonas = new Schemata('pintamonas', 'Pintamonas', 2016);
+const pintamonas = new Schemata('pintamonas', 'Pintamonas', 'Pintamonas', 'A pinturillo revision using AngularJS, Socket.IO and NodeJS.', 2016);
 const pintaLink = new Link('pintamonasGithubLink', 'See on Github', 'https://github.com/Side-Project-Ninjas/pintamonas', Icons.GITHUB);
 pintamonas.addChilds(pintaLink);
 
-const itgf = new Schemata('itgf', 'Is This Game Fun?', 2015);
+const itgf = new Schemata('itgf', 'Is This Game Fun?', 'Is This Game Fun?', 'Rate your videogames or see if your desired game is worth it.', 2015);
 const itgfSLink = new Link('itgfSiteLink', 'Visit site', 'http://github.com', Icons.LINK);
 const itgfDLink = new Link('itgfDocsLink', 'View docs', 'https://rodribus.github.io/IsThisGameFun/', Icons.LINK);
 const itgfSlLink = new Link('itgfSlidesLink', 'View Slides', 'https://rodribus.github.io/IsThisGameFun/presentacion/', Icons.LINK);
 const itgfGLink = new Link('itgfGithubLink', 'See on Github', 'https://github.com/RodriBus/IsThisGameFun', Icons.GITHUB);
 itgf.addChilds(itgfSLink, itgfDLink, itgfSlLink, itgfGLink);
 
-const ecuestria = new Schemata('ecuestria', 'Ecuestria', 2014);
+const ecuestria = new Schemata('ecuestria', 'Ecuestria', 'Ecuestria', 'A scholar work to learn abour design, usability and AAA accesbility', 2014);
 const ecuestriaSLink = new Link('ecuestriaSiteLink', 'Visit site', 'https://rodribus.github.io/portfolio/hipica', Icons.LINK);
 const ecuestriaLink = new Link('ecuestriaGithubLink', 'See on Github', 'https://github.com/RodriBus/Hipica', Icons.GITHUB);
 ecuestria.addChilds(ecuestriaSLink, ecuestriaLink);
 
-const christmas = new Schemata('christmas', 'Christmas Greeting', 2014);
-const christmasSLink = new Link('christmasSiteLink', 'Visit site', 'https://rodribus.github.io/portfolio/navidad', Icons.GITHUB);
+const christmas = new Schemata('christmas', 'Christmas Greeting', 'Christmas Greeting', 'Christmas CSS animation for a scholar contest', 2014);
+const christmasSLink = new Link('christmasSiteLink', 'Visit site', 'https://rodribus.github.io/portfolio/navidad', Icons.LINK);
 const christmasLink = new Link('christmasGithubLink', 'See on Github', 'https://github.com/RodriBus/rodribus.github.io/tree/master/portfolio/navidad', Icons.GITHUB);
 christmas.addChilds(christmasSLink, christmasLink);
 
