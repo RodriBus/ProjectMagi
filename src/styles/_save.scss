@@ -1,0 +1,15 @@
+.stage--spells {
+  flex-direction: column;
+  padding: 20px;
+
+  .section--text {
+    margin-bottom: 30px;
+  }
+
+  .section--bottom {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}

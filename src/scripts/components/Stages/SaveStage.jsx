@@ -1,15 +1,14 @@
 import React from 'react';
 
+import * as utils from '../../utils';
 import navigatorStore from '../../store';
 import { Stage as StageClass } from '../../classes';
+import Stage from '../Stage';
 
 export default class SaveStage extends React.Component {
 
-    constructor (props) {
-        super(props);
-        this.state = {
-            currentStageSelected: navigatorStore.currentCursor
-        };
+    constructor () {
+        super();
         this.onCursorMove = this.onCursorMove.bind(this);
     }
 
@@ -22,52 +21,38 @@ export default class SaveStage extends React.Component {
     }
 
     onCursorMove () {
-        const currentStageSelected = navigatorStore.currentCursor;
-        console.log(currentStageSelected);
-        this.setState({ currentStageSelected });
-    }
-
-    getText (id) {
-        const stage = StageClass.getStage(id);
-        return stage.displayName;
-    }
-
-    getHelp () {
-        const stage = this.state.currentStageSelected;
-        return (<div style={{
-            paddingTop: '20px'
-        }}>{stage.help}</div>);
-    }
-
-    getActiveClass (id) {
-        return id === this.state.currentStageSelected.id ? 'active' : '';
-    }
-
-    getDisabledClass (id) {
-        const stage = StageClass.getStage(id);
-        return stage.available ? '' : 'disabled';
-    }
-
-    getClasses (id) {
-        return [
-            this.getActiveClass(id),
-            this.getDisabledClass(id)
-        ].join(' ');
+        this.forceUpdate();
     }
 
     render () {
+        const {getStage, getClasses, getStageText} = utils;
         return (
-            <div className="stage">
-            <p>
-                If you want to save me for your company contact me at <i className={this.getClasses('email')}/>{this.getText('email')} or via linkedin on <i className={this.getClasses('linkedin')}/>{this.getText('linkedin')}.
-            </p>
-            <br/>
-            <p>
-                You can check my works on Github at <i className={this.getClasses('github')}/>{this.getText('github')}.
-            </p>
-            <br/>
-            <div>Made with <span class="text__red">❤</span> by Diego</div>
-            </div>
+            <Stage className="stage--spells menu--box">
+                <div className="section--text">
+                    If you want to save me for your company contact me at
+                    <a href={getStage('email').url} className={'text__link text__selectable ' + getClasses('email')}>
+                        {getStageText('email')}
+                    </a>
+                    &nbsp;or via linkedin on
+                    <a href={getStage('linkedin').url} className={'text__link text__selectable ' + getClasses('linkedin')}>
+                        {getStageText('linkedin')}
+                    </a>.
+                </div>
+
+                <div className="section--text">
+                    You can check my works on Github at
+                    <a href={getStage('github').url} className={'text__link text__selectable ' + getClasses('github')}>
+                        {getStageText('github')}
+                    </a>.
+                </div>
+
+                <div className="section--bottom">
+                    Made with
+                    <i className="icon icon--heart"/>
+                    {/*<span class="text__red">❤</span>*/}
+                    by Diego
+                </div>
+            </Stage>
         );
     }
 }
