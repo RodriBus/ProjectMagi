@@ -1,6 +1,13 @@
+@import 'colors';
+@import 'dimensions';
+
 .stage--schemata {
   display: flex;
   flex-direction: column;
+
+  .text__link {
+    color: $text-white;
+  }
 
   .stage--row {
     flex-grow: 1;

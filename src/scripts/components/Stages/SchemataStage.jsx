@@ -26,12 +26,13 @@ export default class SchemataStage extends React.Component {
 
     getChilds (id = navigatorStore.currentCursor.id) {
         const stage = utils.getStage(id);
-        const items = stage.childs.map((chld) => (<div
+        const items = stage.childs.map((chld) => (<a
             key={chld.id}
             id={chld.id}
-            className={'link text__selectable ' + this.getClasses(chld.id)}>
+            href={chld.url}
+            className={'text__link link text__selectable ' + this.getClasses(chld.id)}>
             <i className={"icon icon--" + chld.icon}/>{utils.getStageText(chld.id)}
-        </div>))
+        </a>))
         return items;
     }
 
@@ -49,7 +50,8 @@ export default class SchemataStage extends React.Component {
 
     render () {
         const {getStage,  getStageText} = utils;
-        const {description} = this.props.forceActive || navigatorStore.currentCursor;
+        const currentStage = getStage(this.props.forceActive) || navigatorStore.currentCursor;
+        const {description, banner} = currentStage;
         return (
             <Stage className="stage--schemata">
 
@@ -107,9 +109,9 @@ export default class SchemataStage extends React.Component {
                     <div className="stage--column stage--column__right menu--box">
 
                       <div className="column--section">
-                        <div className="section--title section--title__center">{navigatorStore.currentCursor.title}</div>
+                        <div className="section--title section--title__center">{currentStage.title}</div>
                         <div className="section--banner">
-                            <img className="profile--image" src={'/images/banner--' + (['magi', 'canapi', 'nobanner', 'itgf', 'ecuestria', 'christmas'][navigatorStore.currentIndex]) +'.png'}/>
+                            <img className="profile--image" src={'/images/banner--' + banner +'.png'}/>
                         </div>
                         <div className="section--description">
                             {description}
@@ -123,7 +125,7 @@ export default class SchemataStage extends React.Component {
                     </div>
 
                 </div>
-                
+
             </Stage>
         );
     }

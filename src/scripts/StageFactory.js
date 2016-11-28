@@ -75,7 +75,7 @@ equip.addChilds(js, es6, jquery, angular, react, node, css, csharp, tridion, sql
 /////////////////////
 ///SCHEMATA STAGES///
 /////////////////////
-const thisWeb = new Schemata('thisWeb', 'This Website', 'Project Magi', 'A different vision of my current CV to practice some react and flexbox.', 2016);
+const thisWeb = new Schemata('thisWeb', 'This Website', 'Project Magi', 'A different vision of my current CV to practice some react and flexbox.', 2016, 'magi');
 const thisWebLink = new Link('thisGithubLink', 'See on Github', 'https://github.com/RodriBus/ProjectMagi', Icons.GITHUB);
 thisWeb.addChilds(thisWebLink);
 
@@ -83,7 +83,7 @@ const canapi = new Schemata('canapi', 'CanaPi', 'CanaPi', 'Know what devices are
 const canapiLink = new Link('canapiGithubLink', 'See on Github', 'https://github.com/RodriBus/CanaPi', Icons.GITHUB);
 canapi.addChilds(canapiLink);
 
-const pintamonas = new Schemata('pintamonas', 'Pintamonas', 'Pintamonas', 'A pinturillo revision using AngularJS, Socket.IO and NodeJS.', 2016);
+const pintamonas = new Schemata('pintamonas', 'Pintamonas', 'Pintamonas', 'A pinturillo revision using AngularJS, Socket.IO and NodeJS.', 2016, 'nobanner');
 const pintaLink = new Link('pintamonasGithubLink', 'See on Github', 'https://github.com/Side-Project-Ninjas/pintamonas', Icons.GITHUB);
 pintamonas.addChilds(pintaLink);
 
