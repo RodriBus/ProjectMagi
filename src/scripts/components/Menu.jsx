@@ -3,7 +3,6 @@ import React from 'react';
 // import Stage from './Stage';
 import {MainStage, EquipStage, SpellStage, SchemataStage, SaveStage} from './Stages';
 
-import * as utils from '../utils';
 import navigatorStore from '../store';
 import * as actions from '../actions';
 
