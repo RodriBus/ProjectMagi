@@ -14,8 +14,7 @@ export function getCurrentStageHelp() {
 }
 
 export function getActiveClass(id) {
-  const currentStageSelected = navigatorStore.currentCursor;
-  return id === currentStageSelected.id
+  return isInPath(id)
     ? 'text__selected'
     : '';
 }
@@ -32,4 +31,9 @@ export function getClasses(id) {
     getActiveClass(id),
     getDisabledClass(id)
   ].filter( (val) => !!val ).join(' ');
+}
+
+export function isInPath(id) {
+  return navigatorStore.path.some( val => id === val )
+  || (navigatorStore.currentCursor && navigatorStore.currentCursor.id === id) ;
 }
