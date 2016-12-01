@@ -2,19 +2,15 @@ import navigatorStore from './store';
 import { Stage as StageClass } from './classes';
 
 export function getStageText(id) {
-  const stage = StageClass.getStage(id);
-  return stage.displayName;
+  return StageClass.getStage(id).displayName;
 }
 
 export function getStage (id) {
-  const stage = StageClass.getStage(id);
-  return stage;
+  return StageClass.getStage(id);
 }
 
 export function getCurrentStageHelp() {
-  const currentStageSelected = navigatorStore.currentCursor;
-  const stage = currentStageSelected;
-  return stage.help;
+  return navigatorStore.currentCursor.help;
 }
 
 export function getActiveClass(id) {
@@ -32,5 +28,8 @@ export function getDisabledClass(id) {
 }
 
 export function getClasses(id) {
-  return [getActiveClass(id), getDisabledClass(id)].filter((val) => !!val).join(' ');
+  return [
+    getActiveClass(id),
+    getDisabledClass(id)
+  ].filter( (val) => !!val ).join(' ');
 }
