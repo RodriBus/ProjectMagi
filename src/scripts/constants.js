@@ -36,6 +36,8 @@ Icons.NOICON = '';
 Icons.LINK = 'link';
 Icons.GITHUB = 'github';
 
+const Birthday = new Date('12/08/1989');
+
 
 
 
@@ -43,5 +45,6 @@ Icons.GITHUB = 'github';
 export {
   Colors,
   Elements,
-  Icons
+  Icons,
+  Birthday
 };

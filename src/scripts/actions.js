@@ -23,3 +23,16 @@ export function prev () {
     type: 'STAGE_PREV'
   });
 }
+
+let interval;
+export function startCounter() {
+  const time = 1000;
+  if (!interval) {
+    interval = setInterval(() => {
+      dispatcher.dispatch({
+        type: 'TIME_ADD',
+        milliseconds: time
+      });
+    }, time);
+  }
+}

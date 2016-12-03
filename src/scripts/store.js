@@ -1,6 +1,8 @@
 import { EventEmitter } from 'events';
 import dispatcher from './dispatcher';
 
+import { leftpad } from './utils';
+import { Birthday } from './constants';
 import StageFactory from './StageFactory';
 import { Stage, Spell, Item, Stat, Schemata, Link} from './classes';
 
@@ -11,12 +13,14 @@ class NavigatorStore extends EventEmitter {
         super();
         const stages = StageFactory.getStages();
         const firstStage = stages[0];
-        // this.path = [firstStage.id];
+        this.path = [firstStage.id];
         //to fake startup stage
-        this.path = ['main', 'equip'];
+        // this.path = ['main', 'equip'];
         const firstChildAvailable = firstStage.getFirstChildAvailableIndex();
         this.currentIndex = firstChildAvailable;
         this.pathIndex = [0];
+
+        this.timeElapsed = 0;
     }
 
     /**
@@ -37,6 +41,29 @@ class NavigatorStore extends EventEmitter {
             return this.path[this.path.length - 1];
         }
         return this.path[0];
+    }
+
+    /**
+     * The info based on elapsed time
+     * @return {Object}
+     */
+    get info () {
+        const date = new Date(Date.now());
+        const baseHour = 29;
+        const baseMinute = 19;
+        const steps = Math.floor(Birthday.getTime() / (24 * 60 * 60 * 1000));
+        let hour = Math.floor(baseHour + steps / 7 / 100);
+        const minutes = trimMin(baseMinute + date.getMinutes());
+        const gold = steps * 3;
+
+        function trimMin(min) {
+            if (min >= 60) {
+                hour++;
+                return trimMin(min - 60);
+            }
+            return leftpad(min, 2, '0')
+        }
+        return { steps, hour, minutes, gold };
     }
 
     /**
@@ -110,6 +137,14 @@ class NavigatorStore extends EventEmitter {
     }
 
     /**
+     * Adds time to elapsed time
+     */
+    addTime (ms) {
+        this.timeElapsed += ms;
+        this.emit('time');
+    }
+
+    /**
      * Open a Link's instance url in a new window
      */
     handleLink (link) {
@@ -122,7 +157,6 @@ class NavigatorStore extends EventEmitter {
      * Handles actions from the dispatcher
      */
     handleActions (action) {
-        console.log(action);
         switch (action.type) {
             case 'CURSOR_UP': {
                 this.up();
@@ -138,6 +172,10 @@ class NavigatorStore extends EventEmitter {
             }
             case 'STAGE_PREV': {
                 this.prev();
+                break;
+            }
+            case 'TIME_ADD': {
+                this.addTime(action.milliseconds);
                 break;
             }
         }

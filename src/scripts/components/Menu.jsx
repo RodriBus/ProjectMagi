@@ -28,6 +28,10 @@ export default class Menu extends React.Component {
         document.addEventListener("keydown", this.onKeydown.bind(this));
     }
 
+    componentDidMount () {
+      actions.startCounter();
+    }
+
     onKeydown (e) {
         switch (e.which) {
             case 37: // left

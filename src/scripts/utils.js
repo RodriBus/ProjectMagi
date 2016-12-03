@@ -37,3 +37,12 @@ export function isInPath(id) {
   return navigatorStore.path.some( val => id === val )
   || (navigatorStore.currentCursor && navigatorStore.currentCursor.id === id) ;
 }
+
+export function leftpad(value, pads, padchar = ' ') {
+  if (value) {
+    value += '';
+    const pad = padchar.repeat(pads);
+    return pad.substring(0, pad.length - value.length) + value;
+  }
+  return '?'.repeat(pads);
+}

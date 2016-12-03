@@ -1,5 +1,5 @@
-import { Stage, Spell, Item, Stat, Schemata, Link} from './classes';
-import { Colors, Elements, Icons } from './constants';
+import { Stage, Profile, Spell, Item, Stat, Schemata, Link} from './classes';
+import { Birthday, Colors, Elements, Icons } from './constants';
 
 const stages = [];
 const main = new Stage('main', 'Main', true, true);
@@ -21,9 +21,19 @@ const help = new Stage('help', 'Help', false, false);
 const save = new Stage('save', 'Save', true, true);
 main.addChilds(items, abilities, equip, spells, status, formation, config, datalog, schemata, map, help, save);
 
+////////////////////
+///PROFILE STAGES///
+////////////////////
+const age = _calculateAge(Birthday);
+const diego = new Profile('diego', 'Diego', 'Dev', '/images/profile.png', age, age*10, age*10, age*10-120, age*10-120);
+const biggs = new Profile('biggs', 'Biggs', 'Mgtk Elite', '/images/soldier.png', null, 706, null, 154, null);
+const wedge = new Profile('wedge', 'Wedge', 'Mgtk Elite', '/images/soldier.png', null, 704, null, 154, null);
+status.addChilds(diego, biggs, wedge);
+
 ///////////////////
 ///SPELLS STAGES///
 ///////////////////
+
 const git = new Spell('git', 'Git', true, 'Fire-elemental version controll spell', Elements.FIRE);
 const gulp = new Spell('gulp', 'Gulp', true, 'Automated sip of ice n\' task', Elements.ICE);
 const webpack = new Spell('webpack', 'Webpack', true, 'Reduces the target\'s complexity by 1/2', Elements.LIGHTNING);
@@ -118,6 +128,11 @@ save.addChilds(email, linkedin, github);
 
 stages.push(main);
 
+function _calculateAge(birthday) {
+    const ageDifMs = Date.now() - birthday.getTime();
+    const ageDate = new Date(ageDifMs);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
 
 export default {
   getStages: function getStages() {
