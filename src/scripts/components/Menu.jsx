@@ -34,33 +34,26 @@ export default class Menu extends React.Component {
 
     onKeydown (e) {
         switch (e.which) {
-            case 37: // left
-                console.log('keydown:left');
-                break;
-
+            case 87: // W
             case 38: // up
-                console.log('keydown:up');
                 actions.up();
-                // moveUp();
                 break;
 
-            case 39: // right
-                console.log('keydown:right');
-                break;
-
+            case 83: // S
             case 40: // down
-                console.log('keydown:down');
                 actions.down();
-                // moveDown();
                 break;
 
+            case 68: // D
+            case 39: // right
             case 13: // enter
-                console.log('keydown:enter');
                 actions.next();
                 break;
 
-            case 8: // left
-                console.log('keydown:return');
+            case 65: // A
+            case 37: // left
+            case 27: // esc
+            case 8: // return
                 actions.prev();
                 break;
 
@@ -81,13 +74,11 @@ export default class Menu extends React.Component {
 
     onNavigate () {
         const currentStageId = navigatorStore.getLastStage().id;
-        console.log(currentStageId);
         this.playMenuSound();
         this.setState({ currentStageId });
     }
 
     getStage (id) {
-        console.log('Rendered STAGE: ', id);
         const main = (<MainStage id="main" key="main" />);
         const spells = (<SpellStage id="spells" key="spells" />);
         const equip = (<EquipStage id="equip" key="equip" />);
