@@ -2,10 +2,15 @@ import React from 'react';
 
 import * as utils from '../../utils';
 import navigatorStore from '../../store';
-import { Stage as StageClass } from '../../classes';
 import Stage from '../Stage';
 
+import { SchemataGroup, SchemataDetails } from './SchemataStage/index';
+
 export default class SchemataStage extends React.Component {
+
+    static propTypes = {
+        forceActive: React.PropTypes.string
+    }
 
     constructor (props) {
         super(props);
@@ -24,34 +29,8 @@ export default class SchemataStage extends React.Component {
         this.forceUpdate();
     }
 
-    getChilds (id = navigatorStore.currentCursor.id) {
-        const stage = utils.getStage(id);
-        const items = stage.childs.map((chld) => (<a
-            key={chld.id}
-            id={chld.id}
-            href={chld.url}
-            className={'text__link link text__selectable ' + this.getClasses(chld.id)}>
-            <i className={"icon icon--" + chld.icon}/>{utils.getStageText(chld.id)}
-        </a>))
-        return items;
-    }
-
-    getForcedActive (id) {
-        return this.props.forceActive === id ? 'text__selected' : '';
-    }
-
-    getClasses (id) {
-        return [
-            utils.getActiveClass(id),
-            utils.getDisabledClass(id),
-            this.getForcedActive(id)
-        ].join(' ');
-    }
-
     render () {
-        const {getStage,  getStageText} = utils;
-        const currentStage = getStage(this.props.forceActive) || navigatorStore.currentCursor;
-        const {description, banner} = currentStage;
+        const currentStageId = this.props.forceActive || navigatorStore.currentCursor.id;
         return (
             <Stage className="stage--schemata">
 
@@ -64,63 +43,15 @@ export default class SchemataStage extends React.Component {
 
                     <div className="stage--column stage--column__left menu--box">
 
-                        <div className="column--section">
-                            <div className="section--row section--title text__highlighted">2016</div>
-                            <div className="section--list">
-                                <div className={"list--item text__selectable " + this.getClasses('thisWeb')}>
-                                    <i className="icon icon--bullet"/>
-                                    {getStageText('thisWeb')}
-                                </div>
-                                <div className={"list--item text__selectable " + this.getClasses('canapi')}>
-                                    <i className="icon icon--bullet"/>
-                                    {getStageText('canapi')}
-                                </div>
-                                <div className={"list--item text__selectable " + this.getClasses('pintamonas')}>
-                                    <i className="icon icon--bullet"/>
-                                    {getStageText('pintamonas')}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="column--section">
-                            <div className="section--title text__highlighted">2015</div>
-                            <div className="section--list">
-                                <div className={"list--item text__selectable " + this.getClasses('itgf')}>
-                                    <i className="icon icon--bullet"/>
-                                    {getStageText('itgf')}
-                            </div>
-                            </div>
-                        </div>
-                        <div className="column--section">
-                            <div className="section--title text__highlighted">2014</div>
-                            <div className="section--list">
-                                <div className={"list--item text__selectable " + this.getClasses('ecuestria')}>
-                                    <i className="icon icon--bullet"/>
-                                    {getStageText('ecuestria')}
-                                </div>
-                                <div className={"list--item text__selectable " + this.getClasses('christmas')}>
-                                    <i className="icon icon--bullet"/>
-                                    {getStageText('christmas')}
-                                </div>
-                            </div>
-                        </div>
+                      <SchemataGroup year={ 2016 } />
+                      <SchemataGroup year={ 2015 } />
+                      <SchemataGroup year={ 2014 } />
 
                     </div>
 
                     <div className="stage--column stage--column__right menu--box">
 
-                      <div className="column--section">
-                        <div className="section--title section--title__center">{currentStage.title}</div>
-                        <div className="section--banner">
-                            <img className="profile--image" src={'/images/banner--' + banner +'.png'}/>
-                        </div>
-                        <div className="section--description">
-                            {description}
-                        </div>
-                        <div className="section--links">
-                            {this.getChilds(this.props.forceActive)}
-                        </div>
-
-                      </div>
+                        <SchemataDetails stage={ currentStageId }/>
 
                     </div>
 
