@@ -15,7 +15,7 @@ class NavigatorStore extends EventEmitter {
         const firstStage = stages[0];
         // this.path = [firstStage.id];
         //to fake startup stage
-        this.path = ['main', 'schemata'];
+        this.path = ['main', 'save'];
         const firstChildAvailable = firstStage.getFirstChildAvailableIndex();
         this.currentIndex = firstChildAvailable;
         this.pathIndex = [0];

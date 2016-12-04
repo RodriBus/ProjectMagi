@@ -1,8 +1,7 @@
 import React from 'react';
 
-import * as utils from '../../utils';
+import { getStage, getClasses } from '../../utils';
 import navigatorStore from '../../store';
-import { Stage as StageClass } from '../../classes';
 import Stage from '../Stage';
 
 export default class SaveStage extends React.Component {
@@ -25,24 +24,26 @@ export default class SaveStage extends React.Component {
     }
 
     render () {
-        const {getStage, getClasses, getStageText} = utils;
+        const email = getStage('email');
+        const linkedin = getStage('linkedin');
+        const github = getStage('github');
         return (
             <Stage className="stage--save menu--box">
                 <div className="section--text">
                     If you want to save me for your company contact me at
-                    <a href={getStage('email').url} className={'text__link text__selectable ' + getClasses('email')}>
-                        {getStageText('email')}
+                    <a href={ email.url } className={ 'text__link text__selectable ' + getClasses(email.id) }>
+                        { email.displayName }
                     </a>
                     &nbsp;or via linkedin on
-                    <a href={getStage('linkedin').url} className={'text__link text__selectable ' + getClasses('linkedin')}>
-                        {getStageText('linkedin')}
+                    <a href={ linkedin.url } className={ 'text__link text__selectable ' + getClasses(linkedin.id) }>
+                        { linkedin.displayName }
                     </a>.
                 </div>
 
                 <div className="section--text">
                     You can check my works on Github at
-                    <a href={getStage('github').url} className={'text__link text__selectable ' + getClasses('github')}>
-                        {getStageText('github')}
+                    <a href={ github.url } className={ 'text__link text__selectable ' + getClasses(github.id) }>
+                        { github.displayName }
                     </a>.
                 </div>
 
