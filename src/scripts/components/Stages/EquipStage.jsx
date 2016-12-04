@@ -1,15 +1,11 @@
 import React from 'react';
 
-import * as utils from '../../utils';
-import navigatorStore from '../../store';
-import { Stage as StageClass } from '../../classes';
 import Stage from '../Stage';
 
 import { Section, MenuItem, EquipSlot, Stat } from './EquipStage/index';
 
 export default class EquipStage extends React.Component {
     render () {
-      const {getClasses, getStageText, getStage, getCurrentStageHelp} = utils;
         return (
             <Stage className="stage--equip">
                 <div className="stage--column">

@@ -1,9 +1,6 @@
 import React from 'react';
 
-import * as utils from '../../utils';
-import { Birthday } from '../../constants';
 import navigatorStore from '../../store';
-import { Stage as StageClass } from '../../classes';
 import Stage from '../Stage';
 
 import { Column, SectionBox, SectionContent, Profile, MenuItem, MenuInfo} from './MainStage/index';
@@ -49,7 +46,6 @@ export default class MainStage extends React.Component {
     }
 
     render () {
-        const { getClasses, getStageText } = utils;
         const { hour, minutes, steps, gold } = navigatorStore.info;
         return (
             <Stage className="stage--main">
