@@ -25,7 +25,7 @@ main.addChilds(items, abilities, equip, spells, status, formation, config, datal
 ///PROFILE STAGES///
 ////////////////////
 const age = _calculateAge(Birthday);
-const diego = new Profile('diego', 'Diego', 'Dev', '/images/profile.png', age, age*10, age*10, age*10-120, age*10-120);
+const diego = new Profile('diego', 'Diego', 'Developer', '/images/profile.png', age, age*10, age*10, age*10-120, age*10-120);
 const biggs = new Profile('biggs', 'Biggs', 'Mgtk Elite', '/images/soldier.png', null, 706, null, 154, null);
 const wedge = new Profile('wedge', 'Wedge', 'Mgtk Elite', '/images/soldier.png', null, 704, null, 154, null);
 status.addChilds(diego, biggs, wedge);
@@ -45,18 +45,12 @@ const google = new Spell('google', 'Google', true, 'Reveals the target\'s LV, HP
 const photoshop = new Spell('photoshop', 'Photoshop', true, 'Inflicts Confusion on all enemies', Elements.CURSE);
 spells.addChilds(git, gulp, webpack, sass, bootstrap, php, java, google, photoshop);
 
-const webdev = new Stage('webdev', 'Web Development Degree', true, true);
-webdev.help = 'The best type of dev';
-const pro = new Stage('pro', 'Professional', true, true);
-pro.help = 'You put the target, I put the silver bullets';
-const passion = new Stage('passion', 'Passionate', true, true);
-passion.help = 'Man I love doing this stuff';
-const problemRes = new Stage('problemRes', 'Problem Resolver', true, true);
-problemRes.help = 'Workaround is not my way';
-const organized = new Stage('organized', 'Organized', true, true);
-organized.help = 'File this info wherever it belongs, would you?';
-const oldGames = new Stage('oldGames', 'Old Videogames Lover', true, true);
-oldGames.help = 'C\'mon! Look at this place!';
+const webdev = new Spell('webdev', 'Web Development Degree', true, 'The best type of dev', Elements.MAGIC);
+const pro = new Spell('pro', 'Professional', true, 'You put the target, I put the silver bullets', Elements.PHYSICAL);
+const passion = new Spell('passion', 'Passionate', true, 'Man I love doing this stuff', Elements.MAGIC);
+const problemRes = new Spell('problemRes', 'Problem Resolver', true, 'Workaround is not my way', Elements.PHYSICAL);
+const organized = new Spell('organized', 'Organized', true, 'File this info wherever it belongs, would you?', Elements.MAGIC);
+const oldGames = new Spell('oldGames', 'Old Videogames Lover', true, 'C\'mon! Look at this place!', Elements.CURSE);
 spells.addChilds(webdev, pro, passion, problemRes, organized, oldGames);
 
 

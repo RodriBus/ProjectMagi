@@ -6,6 +6,7 @@
 
   .column--section__top {
     flex-grow: 55;
+    max-height: 55;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -13,6 +14,7 @@
 
   .column--section__middle {
     flex-grow: 88;
+    max-height: 88;
     display: flex;
     padding: 0 20px;
   }
@@ -39,6 +41,7 @@
 
   .column--section__bottom {
     flex-grow: 257;
+    max-height: 257;
     display: flex;
     justify-content: space-around;
     align-items: stretch;

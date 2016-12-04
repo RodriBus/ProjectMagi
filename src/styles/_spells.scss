@@ -9,7 +9,7 @@
   }
 
   .column--section__top {
-    flex-grow: 40; //80
+    flex-grow: 80;
     display: flex;
     align-items: center;
   }
@@ -29,6 +29,12 @@
     flex-grow: 105;
     display: flex;
     align-items: center;
+
+    .stats-container {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    }
 
     .section {
       display: flex;
@@ -80,7 +86,7 @@
 
   //BOTTOM
   .column--section__bottom {
-    flex-grow: 215;
+    flex-grow: 150;
     display: flex;
 
     .section--column {
@@ -94,8 +100,10 @@
       display: flex;
       align-items: center;
     }
-    .section--column__passives {
-      text-align: right;
+    
+    .passive {
+      display: flex;
+      align-items: center;
     }
   }
 }
