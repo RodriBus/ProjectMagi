@@ -104,6 +104,9 @@ export default class EventHandler extends React.Component {
     }
 
     render () {
+        if (!utils.isDevice()) {
+            return null;
+        }
         return (
             <div className="controls" style={ {display: (navigatorStore.showInstructions || !this.allowNavigate) ? 'none' : ''} }>
                 <div className="controls--container">
