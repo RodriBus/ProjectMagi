@@ -1,6 +1,8 @@
 import React from 'react';
 
 import {MainStage, EquipStage, SpellStage, SchemataStage, SaveStage} from './Stages';
+import Disclaimer from './Disclaimer';
+import Instructions from './Instructions';
 
 import navigatorStore from '../store';
 import EventHandler from './EventHandler';
@@ -11,6 +13,8 @@ export default class Menu extends React.Component {
         this.state = {
             currentStageId: navigatorStore.currentPath
         };
+
+        this.showInstructions = true;
 
         const main = (<MainStage id="main" key="main" />);
         const spells = (<SpellStage id="spells" key="spells" />);
@@ -43,7 +47,8 @@ export default class Menu extends React.Component {
 
     componentWillMount () {
         navigatorStore.on('navigate', this.onNavigate.bind(this));
-        navigatorStore.on('disclaimer', () => console.log('Show disclaimer ',navigatorStore.showDisclaimer));
+        navigatorStore.on('disclaimer', this.update.bind(this));
+        navigatorStore.on('instructions', this.update.bind(this));
         // navigatorStore.on('cursor', this.onCursorMove.bind(this));
     }
 
@@ -52,7 +57,17 @@ export default class Menu extends React.Component {
         this.setState({ currentStageId });
     }
 
+    update () {
+        this.forceUpdate();
+    }
+
     getStage (id) {
+        if (navigatorStore.showDisclaimer) {
+            return (<Disclaimer/>);
+        }
+        if (navigatorStore.showInstructions) {
+            return (<Instructions/>)
+        }
         return this.items[id] || this.items.main;
     }
 

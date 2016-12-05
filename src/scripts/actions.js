@@ -24,6 +24,26 @@ export function prev () {
   });
 }
 
+export function showDisclaimer () {
+  dispatcher.dispatch({
+    type: 'SHOW_DISCLAIMER',
+    show: true
+  });
+}
+
+export function hideDisclaimer () {
+  dispatcher.dispatch({
+    type: 'SHOW_DISCLAIMER',
+    show: false
+  });
+}
+
+export function hideInstructions () {
+  dispatcher.dispatch({
+    type: 'HIDE_INSTRUCTIONS'
+  });
+}
+
 let interval;
 export function startCounter() {
   const time = 1000;

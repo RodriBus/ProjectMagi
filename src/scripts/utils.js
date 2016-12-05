@@ -1,6 +1,16 @@
 import navigatorStore from './store';
 import { Stage as StageClass } from './classes';
 
+const audio = new Audio();
+audio.src = "http://soundfxcenter.com/video-games/final-fantasy-vi/8d82b5_Final_Fantasy_VI_Pointer_Finger_Sound_Effect.mp3";
+audio.volume = 0.02;
+
+export function playMenuSound () {
+  const a = audio.cloneNode();
+  a.volume = 0.25;
+  a.play();
+}
+
 export function getStageText(id) {
   return StageClass.getStage(id).displayName;
 }
@@ -36,6 +46,20 @@ export function getClasses(id) {
 export function isInPath(id) {
   return navigatorStore.path.some( val => id === val )
   || (navigatorStore.currentCursor && navigatorStore.currentCursor.id === id) ;
+}
+
+export function isDevice () {
+  if (('ontouchstart' in window) || (window.DocumentTouch && document instanceof DocumentTouch)) {
+    return true;
+  }
+return false;
+}
+
+export function isLandscape () {
+  if (window.innerWidth > window.innerHeight) {
+    return true;
+  }
+return false;
 }
 
 export function leftpad(value, pads, padchar = ' ') {

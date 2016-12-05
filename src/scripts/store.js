@@ -21,6 +21,9 @@ class NavigatorStore extends EventEmitter {
         this.pathIndex = [0];
 
         this.timeElapsed = 0;
+
+        this.showDisclaimer = false;
+        this.showInstructions = true;
     }
 
     /**
@@ -137,6 +140,26 @@ class NavigatorStore extends EventEmitter {
     }
 
     /**
+     * Hides the instructions window
+     */
+    hideInstructions () {
+        const emit = this.showInstructions;
+        this.showInstructions = false;
+        if (emit) {
+            this.emit('instructions');
+        }
+    }
+
+    /**
+     * Shows the disclaimer window
+     */
+    changeDisclaimer (show) {
+        console.log(show);
+        this.showDisclaimer = show;
+        this.emit('disclaimer');
+    }
+
+    /**
      * Adds time to elapsed time
      */
     addTime (ms) {
@@ -172,6 +195,14 @@ class NavigatorStore extends EventEmitter {
             }
             case 'STAGE_PREV': {
                 this.prev();
+                break;
+            }
+            case 'HIDE_INSTRUCTIONS': {
+                this.hideInstructions();
+                break;
+            }
+            case 'SHOW_DISCLAIMER': {
+                this.changeDisclaimer(action.show);
                 break;
             }
             case 'TIME_ADD': {

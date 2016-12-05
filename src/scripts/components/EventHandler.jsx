@@ -2,6 +2,7 @@ import React from 'react';
 
 import navigatorStore from '../store';
 import * as actions from '../actions';
+import * as utils from '../utils';
 
 export default class EventHandler extends React.Component {
     constructor () {
@@ -12,6 +13,8 @@ export default class EventHandler extends React.Component {
         audio.onload = () => {
             console.log('playable');
         };
+
+        this.allowNavigate = true;
     }
 
     componentWillMount () {
@@ -23,47 +26,74 @@ export default class EventHandler extends React.Component {
 
     componentDidMount () {
       actions.startCounter();
+      this.checkDevice();
+    }
+
+    hideInstructions () {
+        if (navigatorStore.showInstructions) {
+            actions.hideInstructions();
+        } else {
+            actions.next();
+        }
+        utils.playMenuSound();
     }
 
     onKeydown (e) {
-        switch (e.which) {
-            case 87: // W
-            case 38: // up
-                actions.up();
-                break;
+        if (this.allowNavigate) {
+            switch (e.which) {
+                case 87: // W
+                case 38: // up
+                    actions.up();
+                    break;
 
-            case 83: // S
-            case 40: // down
-                actions.down();
-                break;
+                case 83: // S
+                case 40: // down
+                    actions.down();
+                    break;
 
-            case 68: // D
-            case 39: // right
-            case 13: // enter
-                actions.next();
-                break;
+                case 13: // enter
+                case 68: // D
+                case 39: // right
+                    this.hideInstructions();
+                    break;
 
-            case 65: // A
-            case 37: // left
-            case 27: // esc
-            case 8: // return
-                actions.prev();
-                break;
+                case 65: // A
+                case 37: // left
+                case 27: // esc
+                case 8: // return
+                    actions.prev();
+                    break;
 
-            default:
-                return; // exit this handler for other keys
+                default:
+                    return; // exit this handler for other keys
+            }
         }
         e.preventDefault(); // prevent the default action (scroll / move caret)
     }
 
-    playMenuSound () {
-        const a = this.audio.cloneNode();
-        a.volume = 0.25;
-        a.play();
+    onCursorMove () {
+        utils.playMenuSound();
     }
 
-    onCursorMove () {
-        this.playMenuSound();
+
+
+    checkDevice () {
+        //check if device
+        if (utils.isDevice()) {
+            //if device handle resize event
+            this.onResize();
+            window.addEventListener('resize', this.onResize.bind(this));
+        }
+    }
+
+    onResize () {
+        if (utils.isLandscape()) {
+            this.allowNavigate = true;
+            actions.hideDisclaimer();
+        } else {
+            this.allowNavigate = false;
+            actions.showDisclaimer();
+        }
     }
 
     render () {
