@@ -11,19 +11,7 @@ export default class Menu extends React.Component {
         this.state = {
             currentStageId: navigatorStore.currentPath
         };
-    }
 
-    componentWillMount () {
-        navigatorStore.on('navigate', this.onNavigate.bind(this));
-        // navigatorStore.on('cursor', this.onCursorMove.bind(this));
-    }
-
-    onNavigate () {
-        const currentStageId = navigatorStore.getLastStage().id;
-        this.setState({ currentStageId });
-    }
-
-    getStage (id) {
         const main = (<MainStage id="main" key="main" />);
         const spells = (<SpellStage id="spells" key="spells" />);
         const equip = (<EquipStage id="equip" key="equip" />);
@@ -38,7 +26,7 @@ export default class Menu extends React.Component {
         const ecuestria = (<SchemataStage forceActive="ecuestria" id="ecuestria" key="schemata" />);
         const christmas = (<SchemataStage forceActive="christmas" id="christmas" key="schemata" />);
 
-        const items = {
+        this.items = {
             main,
             spells,
             equip,
@@ -51,7 +39,21 @@ export default class Menu extends React.Component {
             christmas,
             save
         };
-        return items[id] || items.main;
+    }
+
+    componentWillMount () {
+        navigatorStore.on('navigate', this.onNavigate.bind(this));
+        navigatorStore.on('disclaimer', () => console.log('Show disclaimer ',navigatorStore.showDisclaimer));
+        // navigatorStore.on('cursor', this.onCursorMove.bind(this));
+    }
+
+    onNavigate () {
+        const currentStageId = navigatorStore.getLastStage().id;
+        this.setState({ currentStageId });
+    }
+
+    getStage (id) {
+        return this.items[id] || this.items.main;
     }
 
     // componentWillUnmount
