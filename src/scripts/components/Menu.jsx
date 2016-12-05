@@ -75,7 +75,7 @@ export default class Menu extends React.Component {
 
     render () {
         return (
-            <div className="menu">
+            <div className={ 'menu ' + this.state.currentStageId}>
                 <EventHandler/>
                 { this.getStage(this.state.currentStageId) }
             </div>

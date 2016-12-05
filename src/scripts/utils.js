@@ -56,7 +56,8 @@ return false;
 }
 
 export function isLandscape () {
-  if (window.innerWidth > window.innerHeight) {
+  if (window.innerWidth > window.innerHeight ||
+     (window.innerWidth > 600 && window.innerHeight > 400)) {
     return true;
   }
 return false;

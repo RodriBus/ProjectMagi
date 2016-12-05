@@ -8,7 +8,7 @@ export default class EventHandler extends React.Component {
     constructor () {
         super();
         const audio = this.audio = new Audio();
-        audio.src = "http://soundfxcenter.com/video-games/final-fantasy-vi/8d82b5_Final_Fantasy_VI_Pointer_Finger_Sound_Effect.mp3";
+        audio.src = "/pointer.mp3";
         audio.volume = 0.02;
         audio.onload = () => {
             console.log('playable');
@@ -32,10 +32,10 @@ export default class EventHandler extends React.Component {
     hideInstructions () {
         if (navigatorStore.showInstructions) {
             actions.hideInstructions();
+            utils.playMenuSound();
         } else {
             actions.next();
         }
-        utils.playMenuSound();
     }
 
     onKeydown (e) {
@@ -75,7 +75,14 @@ export default class EventHandler extends React.Component {
         utils.playMenuSound();
     }
 
-
+    move (e) {
+        const keycode = e.target.attributes['data-keycode'].value;
+        console.log(keycode);
+        this.onKeydown({
+            which: parseInt(keycode),
+            preventDefault: function () {}
+        });
+    }
 
     checkDevice () {
         //check if device
@@ -97,6 +104,21 @@ export default class EventHandler extends React.Component {
     }
 
     render () {
-        return null;
+        return (
+            <div className="controls" style={ {display: (navigatorStore.showInstructions || !this.allowNavigate) ? 'none' : ''} }>
+                <div className="controls--container">
+                    <div className="controls--row controls--row__one">
+                        <div className="control up" data-keycode={ 38 } onClick={ this.move.bind(this) }></div>
+                    </div>
+                    <div className="controls--row controls--row__two">
+                        <div className="control left" data-keycode={ 37 } onClick={ this.move.bind(this) }></div>
+                        <div className="control right" data-keycode={ 39 } onClick={ this.move.bind(this) }></div>
+                    </div>
+                    <div className="controls--row controls--row__one">
+                        <div className="control down" data-keycode={ 40 } onClick={ this.move.bind(this) }></div>
+                    </div>
+                </div>
+            </div>
+        )
     }
 }
