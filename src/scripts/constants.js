@@ -28,6 +28,11 @@ Elements.CURSE = 'curse';
 Elements.GRAVITY = 'gravity';
 Elements.PHYSICAL = 'physical';
 Elements.MAGIC = 'magic';
+Elements.TRIGGER = 'trigger';
+Elements.SPREAD = 'spread';
+Elements.NIGHT = 'night';
+Elements.LOVE = 'love';
+
 
 
 const Icons = {};

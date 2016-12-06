@@ -47,10 +47,10 @@ spells.addChilds(git, gulp, webpack, sass, bootstrap, php, java, google, photosh
 
 const webdev = new Spell('webdev', 'Web Development Degree', true, 'The best type of dev', Elements.MAGIC);
 const pro = new Spell('pro', 'Professional', true, 'You put the target, I put the silver bullets', Elements.PHYSICAL);
-const passion = new Spell('passion', 'Passionate', true, 'Man I love doing this stuff', Elements.MAGIC);
-const problemRes = new Spell('problemRes', 'Problem Resolver', true, 'Workaround is not my way', Elements.PHYSICAL);
-const organized = new Spell('organized', 'Organized', true, 'File this info wherever it belongs, would you?', Elements.MAGIC);
-const oldGames = new Spell('oldGames', 'Old Videogames Lover', true, 'C\'mon! Look at this place!', Elements.CURSE);
+const passion = new Spell('passion', 'Passionate', true, 'Man I love doing this stuff', Elements.NIGHT);
+const problemRes = new Spell('problemRes', 'Problem Resolver', true, 'Workaround is not my way', Elements.SPREAD);
+const organized = new Spell('organized', 'Organized', true, 'File this info wherever it belongs, would you?', Elements.TRIGGER);
+const oldGames = new Spell('oldGames', 'Old Videogames Lover', true, 'C\'mon! Look at this place!', Elements.LOVE);
 spells.addChilds(webdev, pro, passion, problemRes, organized, oldGames);
 
 

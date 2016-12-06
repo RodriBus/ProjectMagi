@@ -43,7 +43,6 @@
   @include sprite(-16, -96);
 }
 .icon--heart {
-  // @include sprite(-16, -16);
   animation: heart .8s infinite;
   margin: 0 5px;
 }
@@ -60,6 +59,19 @@
 
   75%  { @include sprite(-16, -16); }
   100% { @include sprite(-16, -16); }
+}
+
+$element-list: magic physical trigger spread night;
+.icon--spell {
+  @each $element in $element-list {
+    $i: index($element-list, $element);
+    &.icon--spell__#{$element} {
+      @include sprite(-16, - 64 - ($i * 16));
+    }
+  }
+  &.icon--spell__love {
+    @include sprite(-32, -32);
+  }
 }
 
 $spell-list: curse holy gravity earth lightning ice fire;
