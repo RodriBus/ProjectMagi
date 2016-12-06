@@ -1,12 +1,13 @@
 {
   "name": "ProjectMagi",
   "version": "1.0.0",
-  "description": "",
+  "description": "RPG-menu-like resume",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --content-base src --inline --hot",
-    "devpub": "webpack-dev-server --content-base src --inline --hot --host 0.0.0.0"
+    "devpub": "webpack-dev-server --content-base src --inline --hot --host 0.0.0.0",
+    "release": "webpack --config webpack.production.config.js"
   },
   "repository": {
     "type": "git",
@@ -37,11 +38,14 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
+    "clean-webpack-plugin": "^0.1.14",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.0",
     "eslint": "^3.10.2",
     "eslint-config-react": "^1.1.7",
     "eslint-plugin-react": "^6.7.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.24.1",
     "node-sass": "^3.13.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
