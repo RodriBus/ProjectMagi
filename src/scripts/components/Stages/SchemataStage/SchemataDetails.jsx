@@ -27,9 +27,7 @@ export default class SchemataDetails extends React.Component {
         <div className="section--title section--title__center">
           { title }
         </div>
-        <div className="section--banner">
-            <img className="profile--image" src={ '/images/banner--' + banner +'.png' }/>
-        </div>
+        <div className={ 'section--banner banner--' + banner }></div>
         <div className="section--description">
             { description }
         </div>

@@ -43,6 +43,8 @@
     }
     .section__image {
       margin-right: 20px;
+      width: 85px;
+      height: 85px;
     }
 
     .section__stats {
@@ -100,7 +102,7 @@
       display: flex;
       align-items: center;
     }
-    
+
     .passive {
       display: flex;
       align-items: center;

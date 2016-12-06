@@ -13,7 +13,7 @@ export default class Profile extends React.Component {
     const { displayName, job, image, level, hp, mp } = stage;
     return (
       <div className="profile">
-          <img className="profile--image" src={ image }/>
+          <div className={ 'profile--image profile--' + image }></div>
           <div className="profile--info">
               <div className="profile--row">
                   <span className="profile--row-item">

@@ -76,6 +76,7 @@ export default class Menu extends React.Component {
     render () {
         return (
             <div className={ 'menu ' + this.state.currentStageId}>
+                <div className="preload"></div>
                 <EventHandler/>
                 { this.getStage(this.state.currentStageId) }
             </div>

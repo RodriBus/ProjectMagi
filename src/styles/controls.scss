@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .controls {
   z-index: 999;
   position: absolute;
@@ -36,16 +38,16 @@
     height: 32px;
     opacity: 0.75;
     &.up {
-      background: url(/images/button--up.png) center no-repeat;
+      @include sprite(-48, -32);
     }
     &.right {
-      background: url(/images/button--right.png) center no-repeat;
+      @include sprite(-48, -64);
     }
     &.down {
-      background: url(/images/button--down.png) center no-repeat;
+      @include sprite(-48, -96);
     }
     &.left {
-      background: url(/images/button--left.png) center no-repeat;
+      @include sprite(-48, -128);
     }
   }
 }

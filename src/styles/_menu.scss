@@ -1,8 +1,8 @@
 @import 'colors';
 @import 'dimensions';
+@import 'mixins';
 
 .menu {
-
   color: $text-white;
   font-family: 'Pixel Emulator', 'Press Start 2P', monospace;
   text-shadow: 1px 0 0 $text-shadow, 0 1px 0 $text-shadow;
@@ -30,11 +30,38 @@
 }
 
 .text__selectable {
-  padding-left: 20px;
+  // padding-left: 20px;
   margin-left: 4px;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    margin-right: 4px;
+    left: 0;
+    top: 1.5px;
+    width: 16px;
+    height: 16px;
+    content: '';
+  }
   &.text__selected {
-    // background: url(/images/hand.png) no-repeat left center;
-    background: url(/images/hand.gif) no-repeat left center;
+    &::before {
+      animation: hand .8s infinite;
+      //TODO pon los mixines donde van
+    }
+  }
+
+  @keyframes hand {
+      0%   { @include sprite(0, 0); }
+      24%  { @include sprite(0, 0); }
+
+      25%  { @include sprite(-16, 0); }
+      49%  { @include sprite(-16, 0); }
+
+      50%  { @include sprite(-32, 0); }
+      74%  { @include sprite(-32, 0); }
+
+      75%  { @include sprite(-16, 0); }
+      100% { @include sprite(-16, 0); }
   }
 }
 
@@ -80,7 +107,6 @@
   }
 }
 
-
 .text__blinking {
   animation: blink 1s infinite;
 }
@@ -106,4 +132,9 @@
 .menu--section {
   flex-grow: 1;
   display: flex;
+}
+
+.preload {
+  display: none;
+  background: url(/images/sprites.png);
 }

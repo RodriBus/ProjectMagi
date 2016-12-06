@@ -14,9 +14,7 @@ export default class Stats extends React.Component {
     const { displayName, job, image, level, hp, mp } = stage;
     return (
       <div className="stats-container">
-          <div className="section section__image">
-              <img className="section--image" src={ image }/>
-          </div>
+          <div className={ 'section section__image profile--' + image }></div>
 
           <div className="section section__stats">
 

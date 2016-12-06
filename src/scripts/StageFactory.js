@@ -25,9 +25,9 @@ main.addChilds(items, abilities, equip, spells, status, formation, config, datal
 ///PROFILE STAGES///
 ////////////////////
 const age = _calculateAge(Birthday);
-const diego = new Profile('diego', 'Diego', 'Developer', '/images/profile.png', age, age*10, age*10, age*10-120, age*10-120);
-const biggs = new Profile('biggs', 'Biggs', 'Mgtk Elite', '/images/soldier.png', null, 706, null, 154, null);
-const wedge = new Profile('wedge', 'Wedge', 'Mgtk Elite', '/images/soldier.png', null, 704, null, 154, null);
+const diego = new Profile('diego', 'Diego', 'Developer', 'me', age, age*10, age*10, age*10-120, age*10-120);
+const biggs = new Profile('biggs', 'Biggs', 'Mgtk Elite', 'soldier', null, 706, null, 154, null);
+const wedge = new Profile('wedge', 'Wedge', 'Mgtk Elite', 'soldier', null, 704, null, 154, null);
 status.addChilds(diego, biggs, wedge);
 
 ///////////////////
@@ -87,7 +87,7 @@ const canapi = new Schemata('canapi', 'CanaPi', 'CanaPi', 'Know what devices are
 const canapiLink = new Link('canapiGithubLink', 'See on Github', 'https://github.com/RodriBus/CanaPi', Icons.GITHUB);
 canapi.addChilds(canapiLink);
 
-const pintamonas = new Schemata('pintamonas', 'Pintamonas', 'Pintamonas', 'A pinturillo revision using AngularJS, Socket.IO and NodeJS.', 2016, 'nobanner');
+const pintamonas = new Schemata('pintamonas', 'Pintamonas', 'Pintamonas', 'A pinturillo revision using AngularJS, Socket.IO and NodeJS.', 2016, 'todo');
 const pintaLink = new Link('pintamonasGithubLink', 'See on Github', 'https://github.com/Side-Project-Ninjas/pintamonas', Icons.GITHUB);
 pintamonas.addChilds(pintaLink);
 

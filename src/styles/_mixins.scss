@@ -5,3 +5,7 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+@mixin sprite($left, $top) {
+  background: url(/images/sprites.png) $left + px $top + px;
+}

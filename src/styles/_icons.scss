@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .icon {
   display: inline-block;
   line-height: 1;
@@ -7,30 +9,72 @@
   margin-right: 5px;
 }
 
-.icon--job {
-  background: url(/images/job-code.png);
+.profile--me {
+  @include sprite(-80, 0);
 }
-.icon--bullet {
-  background: url(/images/bullet.png);
-}
-.icon--link {
-  background: url(/images/icon--link.png);
-}
-.icon--github {
-  background: url(/images/icon--github.png);
-}
-.icon--heart {
-  //background: url(/images/heart.png);
-  background: url(/images/heart.gif);
-  margin: 0 10px;
+.profile--soldier {
+  @include sprite(-80, -85);
 }
 
-$spell-list: fire ice lightning earth wind water holy dark poison curse gravity physical magic;
+.icon__hand {
+  @include sprite(-16, 0);
+}
+
+.icon--job {
+  @include sprite(-16, -32);
+}
+.icon--bullet {
+  @include sprite(0, -32);
+}
+.icon--link {
+  @include sprite(-16, -48);
+}
+.icon--github {
+  @include sprite(-16, -64);
+}
+.icon--spell__magic {
+  @include sprite(-16, -80);
+}
+.icon--spell__physical {
+  @include sprite(-16, -96);
+}
+.icon--heart {
+  // @include sprite(-16, -16);
+  animation: heart .8s infinite;
+  margin: 0 5px;
+}
+
+@keyframes heart {
+  0%   { @include sprite(0, -16); }
+  24%  { @include sprite(0, -16); }
+
+  25%  { @include sprite(-16, -16); }
+  49%  { @include sprite(-16, -16); }
+
+  50%  { @include sprite(-32, -16); }
+  74%  { @include sprite(-32, -16); }
+
+  75%  { @include sprite(-16, -16); }
+  100% { @include sprite(-16, -16); }
+}
+
+$spell-list: curse holy gravity earth lightning ice fire;
 .icon--spell {
   @each $spell in $spell-list {
+    $i: index($spell-list, $spell);
     &.icon--spell__#{$spell} {
-        color: $spell;
-        background: url(/images/spell--#{$spell}.png);
+      //spells start on 32px and repeat in list order each 16px
+      @include sprite(0, -32 - ($i * 16));
+    }
+  }
+}
+
+$banner-list: christmas ecuestria itgf todo canapi magi;
+.section--banner {
+  @each $banner in $banner-list {
+    $i: index($banner-list, $banner);
+    &.banner--#{$banner} {
+      @include sprite(-165, -($i - 1) * 40);
     }
   }
 }
