@@ -52,6 +52,7 @@ export default class EventHandler extends React.Component {
                     break;
 
                 case 13: // enter
+                case 32: // space
                 case 68: // D
                 case 39: // right
                     this.hideInstructions();
