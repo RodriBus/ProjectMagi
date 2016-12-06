@@ -34,7 +34,7 @@ status.addChilds(diego, biggs, wedge);
 ///SPELLS STAGES///
 ///////////////////
 
-const git = new Spell('git', 'Git', true, 'Fire-elemental version controll spell', Elements.FIRE);
+const git = new Spell('git', 'Git', true, 'Fire-elemental version control spell', Elements.FIRE);
 const gulp = new Spell('gulp', 'Gulp', true, 'Automated sip of ice n\' task', Elements.ICE);
 const webpack = new Spell('webpack', 'Webpack', true, 'Reduces the target\'s complexity by 1/2', Elements.GRAVITY);
 const sass = new Spell('sass', 'SASS', true, 'I hope you like it hot', Elements.FIRE);
@@ -48,7 +48,7 @@ spells.addChilds(git, gulp, webpack, sass, bootstrap, php, java, google, photosh
 const webdev = new Spell('webdev', 'Web Development Degree', true, 'The best type of dev', Elements.MAGIC);
 const pro = new Spell('pro', 'Professional', true, 'You put the target, I put the silver bullets', Elements.PHYSICAL);
 const passion = new Spell('passion', 'Passionate', true, 'Man I love doing this stuff', Elements.NIGHT);
-const problemRes = new Spell('problemRes', 'Problem Resolver', true, 'Workaround is not my way', Elements.SPREAD);
+const problemRes = new Spell('problemRes', 'Problem Resolver', true, 'Hack is not my workaround', Elements.SPREAD);
 const organized = new Spell('organized', 'Organized', true, 'File this info wherever it belongs, would you?', Elements.TRIGGER);
 const oldGames = new Spell('oldGames', 'Old Videogames Lover', true, 'C\'mon! Look at this place!', Elements.LOVE);
 spells.addChilds(webdev, pro, passion, problemRes, organized, oldGames);
@@ -59,7 +59,7 @@ spells.addChilds(webdev, pro, passion, problemRes, organized, oldGames);
 //////////////////
 const rhand = new Item('rhand', 'Good Practices', false, 'some rhand help text');
 const lhand = new Item('lhand', 'Resourcefulness', false, 'some lhand help text');
-const head = new Item('head', 'Eager to Lear', false, 'some head help text');
+const head = new Item('head', 'Eager to Learn', false, 'some head help text');
 const body = new Item('body', 'Passion', false, 'some body help text');
 equip.addChilds(rhand, lhand, head, body);
 
@@ -79,7 +79,7 @@ equip.addChilds(js, es6, jquery, angular, react, node, css, csharp, tridion, sql
 /////////////////////
 ///SCHEMATA STAGES///
 /////////////////////
-const thisWeb = new Schemata('thisWeb', 'This Website', 'Project Magi', 'A different vision of my current CV to practice some react and flexbox.', 2016, 'magi');
+const thisWeb = new Schemata('thisWeb', 'This Website', 'Project Magi', 'A different vision of my current resume to practice some react and flexbox.', 2016, 'magi');
 const thisWebLink = new Link('thisGithubLink', 'See on Github', 'https://github.com/RodriBus/ProjectMagi', Icons.GITHUB);
 thisWeb.addChilds(thisWebLink);
 
@@ -87,7 +87,7 @@ const canapi = new Schemata('canapi', 'CanaPi', 'CanaPi', 'Know what devices are
 const canapiLink = new Link('canapiGithubLink', 'See on Github', 'https://github.com/RodriBus/CanaPi', Icons.GITHUB);
 canapi.addChilds(canapiLink);
 
-const pintamonas = new Schemata('pintamonas', 'Pintamonas', 'Pintamonas', 'A pinturillo revision using AngularJS, Socket.IO and NodeJS.', 2016, 'todo');
+const pintamonas = new Schemata('pintamonas', 'Pintamonas', 'Pintamonas', 'A pictionary revision using AngularJS, Socket.IO and NodeJS.', 2016, 'todo');
 const pintaLink = new Link('pintamonasGithubLink', 'See on Github', 'https://github.com/Side-Project-Ninjas/pintamonas', Icons.GITHUB);
 pintamonas.addChilds(pintaLink);
 
@@ -98,7 +98,7 @@ const itgfSlLink = new Link('itgfSlidesLink', 'View Slides', 'https://rodribus.g
 const itgfGLink = new Link('itgfGithubLink', 'See on Github', 'https://github.com/RodriBus/IsThisGameFun', Icons.GITHUB);
 itgf.addChilds(itgfSLink, itgfDLink, itgfSlLink, itgfGLink);
 
-const ecuestria = new Schemata('ecuestria', 'Ecuestria', 'Ecuestria', 'A scholar work to learn abour design, usability and AAA accesbility', 2014);
+const ecuestria = new Schemata('ecuestria', 'Ecuestria', 'Ecuestria', 'A scholarly work to learn about design, usability and AAA accessibility', 2014);
 const ecuestriaSLink = new Link('ecuestriaSiteLink', 'Visit site', 'https://rodribus.github.io/portfolio/hipica', Icons.LINK);
 const ecuestriaLink = new Link('ecuestriaGithubLink', 'See on Github', 'https://github.com/RodriBus/Hipica', Icons.GITHUB);
 ecuestria.addChilds(ecuestriaSLink, ecuestriaLink);

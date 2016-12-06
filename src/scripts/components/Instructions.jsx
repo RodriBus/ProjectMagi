@@ -31,11 +31,11 @@ export default class Instructions extends React.Component {
                 </h1>
                 <p className="paragraph">
                     Use <em>↑ ↓</em> to select and <em>← →</em> to navigate.
-                    It works also with <em>WASD</em>, <em>enter</em>, <em>return</em> and <em>esc</em>.
+                    It works also with <em>WASD</em>, <em>enter</em>, <em>return</em>, <em>space</em> and <em>esc</em>.
                 </p>
                 { this.getDeviceMessage() }
                 <p className="paragraph">
-                    It makes sound so don't jumpscare.
+                    It makes sound so don't jump scare.
                 </p>
                 <p className="paragraph paragraph__right">
                     Enjoy!
