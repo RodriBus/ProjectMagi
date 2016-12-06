@@ -45,6 +45,10 @@
       flex-direction: column;
       padding: 10px 20px;
       justify-content: space-around;
+
+      .text__selectable {
+        align-items: baseline;
+      }
     }
     .section--container {
       flex-grow: 1;
