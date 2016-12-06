@@ -154,7 +154,6 @@ class NavigatorStore extends EventEmitter {
      * Shows the disclaimer window
      */
     changeDisclaimer (show) {
-        console.log(show);
         this.showDisclaimer = show;
         this.emit('disclaimer');
     }

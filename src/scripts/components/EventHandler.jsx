@@ -78,7 +78,6 @@ export default class EventHandler extends React.Component {
 
     move (e) {
         const keycode = e.target.attributes['data-keycode'].value;
-        console.log(keycode);
         this.onKeydown({
             which: parseInt(keycode),
             preventDefault: function () {}
