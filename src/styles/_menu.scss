@@ -29,6 +29,10 @@
   inset 0 0 0 $stage-border-size - 2 $menu-border;
 }
 
+.text-inline-container {
+    display: inline-block;
+}
+
 .text__selectable {
   // padding-left: 20px;
   margin-left: 4px;
@@ -41,6 +45,10 @@
     top: 1.5px;
     width: 16px;
     height: 16px;
+    max-width: 16px;
+    min-width: 16px;
+    max-height: 16px;
+    min-height: 16px;
     content: '';
   }
   &.text__selected {

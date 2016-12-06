@@ -31,20 +31,20 @@ export default class SaveStage extends React.Component {
             <Stage className="stage--save menu--box">
                 <div className="section--text">
                     If you want to save me for your company contact me at
-                    <a href={ email.url } className={ 'text__link text__selectable ' + getClasses(email.id) }>
+                    <span className="text-inline-container"><a href={ email.url } className={ 'text__link text__selectable ' + getClasses(email.id) }>
                         { email.displayName }
-                    </a>
+                    </a></span>
                     &nbsp;or via linkedin on
-                    <a href={ linkedin.url } className={ 'text__link text__selectable ' + getClasses(linkedin.id) }>
+                    <span className="text-inline-container"><a href={ linkedin.url } className={ 'text__link text__selectable ' + getClasses(linkedin.id) }>
                         { linkedin.displayName }
-                    </a>.
+                    </a></span>.
                 </div>
 
                 <div className="section--text">
-                    You can check my works on Github at
-                    <a href={ github.url } className={ 'text__link text__selectable ' + getClasses(github.id) }>
+                    You can check my works on Github <br/>at
+                    <span className="text-inline-container"><a href={ github.url } className={ 'text__link text__selectable ' + getClasses(github.id) }>
                         { github.displayName }
-                    </a>.
+                    </a></span>.
                 </div>
 
                 <div className="section--bottom">
