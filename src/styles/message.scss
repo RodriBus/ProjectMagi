@@ -1,3 +1,5 @@
+@import 'colors';
+
 .message {
   padding: 20px;
   display: flex;
@@ -18,13 +20,13 @@
     border-radius: 2px;
     border: none;
     background: rgba($menu-border-fill,.1);
-    box-shadow: 1px 1px 0 0 $menu-border;
+    box-shadow: 1px 1px 0 0 rgba($menu-border,.5);
 
     &:hover {
       background: rgba($menu-border-fill,.15);
     }
     &:active {
-      box-shadow: -1px -1px 0 0 $menu-border;
+      box-shadow: -1px -1px 0 0 rgba($menu-border,.5);
     }
     &:focus {
       outline:0;
