@@ -36,11 +36,11 @@ status.addChilds(diego, biggs, wedge);
 
 const git = new Spell('git', 'Git', true, 'Fire-elemental version controll spell', Elements.FIRE);
 const gulp = new Spell('gulp', 'Gulp', true, 'Automated sip of ice n\' task', Elements.ICE);
-const webpack = new Spell('webpack', 'Webpack', true, 'Reduces the target\'s complexity by 1/2', Elements.LIGHTNING);
+const webpack = new Spell('webpack', 'Webpack', true, 'Reduces the target\'s complexity by 1/2', Elements.GRAVITY);
 const sass = new Spell('sass', 'SASS', true, 'I hope you like it hot', Elements.FIRE);
 const bootstrap = new Spell('bootstrap', 'Bootstrap', true, 'Icing on the cake', Elements.ICE);
 const php = new Spell('php', 'PHP', true, 'Power from the scripted ground', Elements.EARTH);
-const java = new Spell('java', 'Java', true, 'Write once, execute everybody', Elements.GRAVITY);
+const java = new Spell('java', 'Java', true, 'Write once, execute everybody', Elements.LIGHTNING);
 const google = new Spell('google', 'Google', true, 'Reveals the target\'s LV, HP, MP, and weaknesses', Elements.HOLY);
 const photoshop = new Spell('photoshop', 'Photoshop', true, 'Inflicts Confusion on all enemies', Elements.CURSE);
 spells.addChilds(git, gulp, webpack, sass, bootstrap, php, java, google, photoshop);
