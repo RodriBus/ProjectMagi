@@ -1,0 +1,96 @@
+@import 'mixins';
+
+.icon {
+  display: inline-block;
+  line-height: 1;
+  position: relative;
+  width: 16px;
+  max-width: 16px;
+  min-width: 16px;
+  height: 16px;
+  max-height: 16px;
+  min-height: 16px;
+  margin-right: 5px;
+}
+
+.profile--me {
+  @include sprite(-80, 0);
+}
+.profile--soldier {
+  @include sprite(-80, -85);
+}
+
+.icon__hand {
+  @include sprite(-16, 0);
+}
+
+.icon--job {
+  @include sprite(-16, -32);
+}
+.icon--bullet {
+  @include sprite(0, -32);
+}
+.icon--link {
+  @include sprite(-16, -48);
+}
+.icon--github {
+  @include sprite(-16, -64);
+}
+.icon--spell__magic {
+  @include sprite(-16, -80);
+}
+.icon--spell__physical {
+  @include sprite(-16, -96);
+}
+.icon--heart {
+  animation: heart .8s infinite;
+  margin: 0 5px;
+}
+
+@keyframes heart {
+  0%   { @include sprite(0, -16); }
+  24%  { @include sprite(0, -16); }
+
+  25%  { @include sprite(-16, -16); }
+  49%  { @include sprite(-16, -16); }
+
+  50%  { @include sprite(-32, -16); }
+  74%  { @include sprite(-32, -16); }
+
+  75%  { @include sprite(-16, -16); }
+  100% { @include sprite(-16, -16); }
+}
+
+$element-list: magic physical trigger spread night;
+.icon--spell {
+  @each $element in $element-list {
+    $i: index($element-list, $element);
+    &.icon--spell__#{$element} {
+      @include sprite(-16, - 64 - ($i * 16));
+    }
+  }
+  &.icon--spell__love {
+    @include sprite(-32, -32);
+  }
+}
+
+$spell-list: curse holy gravity earth lightning ice fire;
+.icon--spell {
+  @each $spell in $spell-list {
+    $i: index($spell-list, $spell);
+    &.icon--spell__#{$spell} {
+      //spells start on 32px and repeat in list order each 16px
+      @include sprite(0, -32 - ($i * 16));
+    }
+  }
+}
+
+$banner-list: christmas ecuestria itgf todo canapi magi;
+.section--banner {
+  @each $banner in $banner-list {
+    $i: index($banner-list, $banner);
+    &.banner--#{$banner} {
+      @include sprite(-165, -($i - 1) * 40);
+    }
+  }
+}

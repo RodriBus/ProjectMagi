@@ -1,19 +1,47 @@
-@import url('/fonts/PixelEmulator/PixelEmulator.otf');
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
-
 @import 'colors';
+@import 'icons';
+@import 'dimensions';
+@import 'mixins';
 
-* {padding: 0; margin: 0; box-sizing: border-box;}
+@import 'menu';
+@import 'main';
+@import 'equip';
+@import 'spells';
+@import 'schemata';
+@import 'save';
+@import 'message';
+@import 'controls';
+
+@font-face {
+    font-family: 'Pixel Emulator';
+    src: url('/fonts/PixelEmulator/PixelEmulator.otf');
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 html {
   background-color: $background-black;
-  color: $text-white;
-  font-family: 'Pixel Emulator', 'Press Start 2P', monospace;
-  text-shadow: 1px 0 0 $text-shadow, 0 1px 0 $text-shadow;
-  font-size: 1em;
-
+  height: 100%;
 }
 
 body {
-  font-size: 1em;
+  height: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

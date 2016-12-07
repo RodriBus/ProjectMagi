@@ -1,10 +1,10 @@
-var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   context: path.join(__dirname, "src"),
-  devtool: debug ? "inline-sourcemap" : null,
+  devtool: "inline-source-map",
   entry: "./scripts/app.jsx",
   module: {
     loaders: [{
@@ -17,6 +17,8 @@ module.exports = {
       }
     },{
       test: /\.scss$/,
+      //No sourcemaps because of https://github.com/webpack/style-loader/issues/55
+      // loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
       loaders: ['style', 'css', 'sass']
     }]
   },
@@ -27,12 +29,11 @@ module.exports = {
     path: __dirname + "/src/",
     filename: "app.min.js"
   },
-  plugins: debug ? [] : [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      mangle: false,
-      sourcemap: true
-    }),
-  ],
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      favicon: 'favicon.ico'
+    })
+  ]
 };

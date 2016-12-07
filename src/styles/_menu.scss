@@ -1,0 +1,148 @@
+@import 'colors';
+@import 'dimensions';
+@import 'mixins';
+
+.menu {
+  color: $text-white;
+  font-family: 'Pixel Emulator', 'Press Start 2P', monospace;
+  text-shadow: 1px 0 0 $text-shadow, 0 1px 0 $text-shadow;
+  font-size: 1em;
+  flex-basis: $menu-width;
+  max-height: $menu-height;
+  height: 100%;
+  align-items: stretch;
+  display: flex;
+}
+
+.menu--box {
+  // border-style: solid;
+  // border-width: 6px;
+  // border-image: url(/images/border.png) 6 fill repeat;
+
+  background-color: $menu-background;
+  border-color: $menu-border-fill;
+  border-width: $stage-border-size;
+  margin: $stage-border-size - 2;
+  border-style: solid;
+  border-radius: $stage-border-size * 2;
+  box-shadow: 0 0 0 $stage-border-size - 2 $menu-border,
+  inset 0 0 0 $stage-border-size - 2 $menu-border;
+}
+
+.text-inline-container {
+    display: inline-block;
+}
+
+.text__selectable {
+  // padding-left: 20px;
+  margin-left: 4px;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    margin-right: 4px;
+    left: 0;
+    top: 1.5px;
+    width: 16px;
+    height: 16px;
+    max-width: 16px;
+    min-width: 16px;
+    max-height: 16px;
+    min-height: 16px;
+    content: '';
+  }
+  &.text__selected {
+    &::before {
+      animation: hand .8s infinite;
+      //TODO pon los mixines donde van
+    }
+  }
+
+  @keyframes hand {
+      0%   { @include sprite(0, 0); }
+      24%  { @include sprite(0, 0); }
+
+      25%  { @include sprite(-16, 0); }
+      49%  { @include sprite(-16, 0); }
+
+      50%  { @include sprite(-32, 0); }
+      74%  { @include sprite(-32, 0); }
+
+      75%  { @include sprite(-16, 0); }
+      100% { @include sprite(-16, 0); }
+  }
+}
+
+.text__disabled {
+  color: $text-disabled-color;
+  text-shadow: 0 -1px 0 $text-disabled-top-shadow, 1px 0 0 $text-disabled-bottom-shadow, 0 1px 0 $text-disabled-bottom-shadow;
+}
+
+.text__highlighted {
+  color: $text-blue;
+}
+
+.text__red {
+  color: $red;
+}
+
+.text__unknown {
+  &:before {
+    content: '?';
+  }
+}
+.text__unknown-2 {
+  &:before {
+    content: '??';
+  }
+}
+.text__unknown-3 {
+  &:before {
+    content: '???';
+  }
+}
+.text__unknown-4 {
+  &:before {
+    content: '????';
+  }
+}
+
+.text__link {
+  color: $text-blue;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.text__blinking {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%   {opacity: 1;}
+    49%  {opacity: 1;}
+    50%  {opacity: 0;}
+    99%  {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.menu--stage {
+  // height: 100%;
+  align-content: flex-start;
+  display: flex;
+  flex-grow: 1;
+}
+
+.stage--column {
+    display: flex;
+}
+.menu--section {
+  flex-grow: 1;
+  display: flex;
+}
+
+.preload {
+  display: none;
+  background: url(/images/sprites.png);
+}

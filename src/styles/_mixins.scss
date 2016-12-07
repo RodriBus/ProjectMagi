@@ -1,0 +1,11 @@
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin sprite($left, $top) {
+  background: url(/images/sprites.png) $left + px $top + px;
+}

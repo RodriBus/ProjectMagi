@@ -1,0 +1,117 @@
+@import 'colors';
+@import 'dimensions';
+
+.stage--schemata {
+  display: flex;
+  flex-direction: column;
+
+  .text__link {
+    color: $text-white;
+  }
+
+  .stage--row {
+    flex-grow: 1;
+  }
+
+  .stage--row__top {
+    flex-grow: 55;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20px;
+    .section {
+      flex-grow: 1;
+    }
+  }
+
+  .stage--row__bottom {
+    flex-grow: 345;
+    max-height: 345px;
+    display: flex;
+
+    .stage--column {
+      flex-grow: 1;
+      display: flex;
+    }
+    .column--section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stage--column__left {
+      max-width: 257px;
+      flex-grow: 257;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 20px;
+      justify-content: space-around;
+
+      .text__selectable {
+        align-items: baseline;
+      }
+    }
+    .section--container {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .section--title {
+      margin-bottom: 10px;
+    }
+    .section--list {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+
+
+    .stage--column__right {
+      flex-grow: 344;
+      max-width: 344px;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 20px;
+    }
+    .column--section {
+      flex-grow: 1;
+      display: flex;
+    }
+    .section--title__center {
+      min-height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .section--banner {
+      margin-bottom: 10px;
+      width: 300px;
+      height: 40px;
+      border-radius: $stage-border-size + 2;
+      box-shadow: 0 1px 0 0 $menu-border;
+    }
+    // .profile--image {
+    //   border-radius: $stage-border-size + 2;
+    //   box-shadow: 0 1px 0 0 $menu-border;
+    // }
+    .section--description {
+      flex-grow: 1;
+    }
+    .section--links {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: flex-end;
+      padding-left: 9%;
+      padding-bottom: 10px;
+    }
+    .link {
+      display: flex;
+      align-items: center;
+    }
+
+  }
+
+}
