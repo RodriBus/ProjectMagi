@@ -1,4 +1,4 @@
-#Project Magi
+![Project Magi](https://rodribus.github.io/ProjectMagi/logo.gif)
 
 An attempt to transform [my resume webpage](http://rodribus.com) into a RPG-menu-like resume using [react](https://github.com/facebook/react).
 
